@@ -4,6 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sydney Family Trip 2026-2027</title>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#0f5c4c">
+<link rel="icon" type="image/png" sizes="192x192" href="images/icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="images/icon-512.png">
+<link rel="apple-touch-icon" href="images/icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="시드니 여행">
+<meta name="mobile-web-app-capable" content="yes">
 <style>
 :root{
   --bg:#faf8f5; --card:#ffffff; --ink:#1f2a24; --sub:#5b6560; --line:#e6e1d8;
@@ -1024,6 +1033,14 @@ window.addEventListener("scroll", function(){
   const btn = document.getElementById("topBtn");
   if(window.scrollY > 500) btn.classList.add("show"); else btn.classList.remove("show");
 });
+</script>
+
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js').catch(()=>{});
+  });
+}
 </script>
 </body>
 </html>
