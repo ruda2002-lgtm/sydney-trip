@@ -1,0 +1,1029 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sydney Family Trip 2026-2027</title>
+<style>
+:root{
+  --bg:#faf8f5; --card:#ffffff; --ink:#1f2a24; --sub:#5b6560; --line:#e6e1d8;
+  --accent:#0f5c4c; --accent2:#c97a2b; --warn-bg:#fff4e0; --warn-bd:#e0a94a; --warn-ink:#6b4a10;
+  --chip:#eef3ef; --shadow:0 2px 10px rgba(20,30,25,.06);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Malgun Gothic","Apple SD Gothic Neo",sans-serif;line-height:1.55}
+img{max-width:100%;display:block}
+a{color:var(--accent)}
+h1,h2,h3,h4{line-height:1.3;margin:0 0 .4em}
+.wrap{max-width:1040px;margin:0 auto;padding:0 16px}
+.section{padding:48px 0 12px;scroll-margin-top:70px}
+.section h2{font-size:1.5rem;border-left:5px solid var(--accent);padding-left:12px;margin-bottom:18px}
+.section .lead{color:var(--sub);margin-bottom:20px}
+
+/* ---------- NAV ---------- */
+nav.topbar{position:sticky;top:0;z-index:50;background:rgba(250,248,245,.96);backdrop-filter:blur(4px);border-bottom:1px solid var(--line)}
+.navrow{display:flex;align-items:center;gap:6px;max-width:1040px;margin:0 auto;padding:8px 16px}
+.navrow .brand{font-weight:700;color:var(--accent);white-space:nowrap;margin-right:8px;font-size:.95rem}
+.navlinks{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;flex:1}
+.navlinks::-webkit-scrollbar{display:none}
+.navlinks a{white-space:nowrap;padding:8px 10px;border-radius:8px;color:var(--ink);text-decoration:none;font-size:.88rem}
+.navlinks a:hover{background:var(--chip)}
+.hamburger{display:none;background:none;border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:1rem;cursor:pointer}
+@media(max-width:680px){
+  .navlinks{display:none}
+  .navlinks.open{display:flex;flex-direction:column;position:fixed;top:52px;left:0;right:0;background:var(--card);padding:8px;box-shadow:var(--shadow);max-height:70vh;overflow-y:auto}
+  .hamburger{display:inline-block}
+}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;color:#fff;overflow:hidden}
+.hero img{width:100%;height:46vh;min-height:280px;object-fit:cover;filter:brightness(.8) contrast(1.03)}
+.hero-text{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:28px 16px 22px;background:linear-gradient(180deg,rgba(6,14,12,.04) 0%,rgba(6,14,12,.12) 35%,rgba(6,14,12,.58) 72%,rgba(6,14,12,.84) 100%)}
+.hero-text .inner{max-width:1040px;margin:0 auto;width:100%}
+.hero h1{font-size:2.1rem;margin-bottom:2px}
+.hero .sub{font-size:1.05rem;opacity:.95}
+.hero .meta{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px}
+.hero .meta span{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);border-radius:20px;padding:5px 12px;font-size:.82rem}
+
+.homecards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:22px 0}
+@media(min-width:900px){.homecards{grid-template-columns:repeat(6,1fr)}}
+@media(max-width:680px){.homecards{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:380px){.homecards{grid-template-columns:1fr}}
+@media(max-width:680px){.overviewgrid{grid-template-columns:1fr}}
+.homecard{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 14px;box-shadow:var(--shadow);display:flex;flex-direction:column;justify-content:center;min-height:96px}
+.homecard .k{font-size:.75rem;color:var(--sub);margin-bottom:5px;letter-spacing:.02em}
+.homecard .v{font-weight:800;font-size:1.08rem;line-height:1.32}
+#todayBtnWrap{margin:18px 0;text-align:center}
+.btn{display:inline-block;background:var(--accent);color:#fff;border:none;border-radius:10px;padding:12px 20px;font-size:.95rem;cursor:pointer;text-decoration:none;font-weight:600}
+.btn.secondary{background:var(--accent2)}
+.btn.ghost{background:#fff;color:var(--accent);border:1.5px solid var(--accent)}
+#todayResult{margin-top:10px;font-size:.9rem;color:var(--sub)}
+
+/* ---------- OVERVIEW CARDS ---------- */
+.overviewgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
+.ovcard{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;box-shadow:var(--shadow);cursor:pointer;transition:transform .12s;display:flex;flex-direction:column;min-height:184px}
+.ovcard:hover{transform:translateY(-2px);border-color:var(--accent)}
+.ovcard:active{transform:translateY(0)}
+.ovcard .date{font-weight:800;color:var(--accent);font-size:1.02rem}
+.ovcard .tag{display:inline-block;background:var(--chip);border-radius:6px;padding:1px 8px;font-size:.72rem;margin-left:6px;color:var(--accent);font-weight:600}
+.ovcard .region{color:var(--accent2);font-weight:700;font-size:.87rem;margin-top:6px}
+.ovcard .theme{font-size:.83rem;margin-top:5px;color:var(--sub);flex:1}
+.ovcard .foot{margin-top:auto;padding-top:8px;display:flex;flex-wrap:wrap;gap:6px;font-size:.72rem;color:var(--sub)}
+.ovcard .foot span{background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:3px 7px;font-weight:600}
+
+/* ---------- DAY CARD ---------- */
+.daycard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;margin-bottom:22px;box-shadow:var(--shadow);scroll-margin-top:70px}
+.daycard .dhead{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px;border-bottom:2px solid var(--accent);padding-bottom:10px;margin-bottom:14px}
+.daycard .dhead .dnum{background:var(--accent);color:#fff;border-radius:8px;padding:3px 10px;font-weight:700;font-size:.85rem}
+.daycard .dhead .ddate{font-size:1.25rem;font-weight:700}
+.daycard .dhead .dtag{background:var(--warn-bg);color:var(--warn-ink);border-radius:6px;padding:2px 8px;font-size:.75rem}
+.daycard .photo{width:100%;height:200px;object-fit:cover;border-radius:10px;margin-bottom:12px}
+.daycard .photocap{font-size:.72rem;color:var(--sub);margin:-8px 0 12px}
+
+/* ---------- ACCORDION ---------- */
+.daysummary{cursor:pointer;user-select:none}
+.daysummary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:8px}
+.daycard .thumb{width:100%;height:120px;object-fit:cover;border-radius:10px;margin:10px 0 2px}
+.sumline{font-size:.95rem;margin-top:8px}
+.sumline b{color:var(--ink)}
+.toggletext{display:flex;align-items:center;gap:5px;color:var(--accent);font-weight:700;font-size:.85rem;margin-top:12px}
+.toggletext .chev{display:inline-block;transition:transform .25s ease;font-size:.75rem}
+.daycard.open .toggletext .chev{transform:rotate(180deg)}
+.daybody{max-height:0;opacity:0;overflow:hidden;transition:max-height .4s ease,opacity .3s ease}
+.daycard.open .daybody{max-height:12000px;opacity:1;margin-top:16px}
+@keyframes flashHi{0%{box-shadow:0 0 0 0 rgba(15,92,76,.5)}60%{box-shadow:0 0 0 12px rgba(15,92,76,0)}100%{box-shadow:0 0 0 0 rgba(15,92,76,0)}}
+.daycard.flash{animation:flashHi 1.5s ease}
+.daysection-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;margin-bottom:18px}
+.daysection-head .btnrow{display:flex;gap:8px}
+
+/* ---------- BIG SECTION ACCORDION ---------- */
+.bigacc-head{display:flex;align-items:center;justify-content:space-between;gap:12px;cursor:pointer;user-select:none}
+.bigacc-head:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:8px}
+.bigacc-head h2{margin-bottom:0}
+.bigacc-chev{font-size:1.1rem;color:var(--accent);transition:transform .25s ease;flex:none}
+.section.bigacc.open .bigacc-chev{transform:rotate(180deg)}
+.bigacc-summary{color:var(--sub);font-size:.88rem;margin:6px 0 0}
+.bigacc-body{max-height:0;overflow:hidden;opacity:0;transition:max-height .4s ease,opacity .3s ease}
+.section.bigacc.open .bigacc-body{max-height:20000px;opacity:1;margin-top:18px}
+.smallbtn{background:#fff;border:1.5px solid var(--accent);color:var(--accent);border-radius:8px;padding:9px 14px;font-size:.82rem;font-weight:600;cursor:pointer;min-height:40px}
+.smallbtn:hover{background:var(--accent);color:#fff}
+.field{margin-bottom:14px}
+.field .flabel{font-weight:700;font-size:.88rem;color:var(--accent);margin-bottom:5px;display:flex;align-items:center;gap:6px}
+.field .fnum{background:var(--chip);border-radius:50%;width:20px;height:20px;display:inline-flex;align-items:center;justify-content:center;font-size:.7rem;color:var(--accent);flex:none}
+.pillrow{display:flex;flex-wrap:wrap;gap:6px}
+.pill{background:var(--chip);border-radius:16px;padding:3px 10px;font-size:.78rem}
+table.sched{width:100%;border-collapse:collapse;font-size:.85rem}
+table.sched th,table.sched td{border:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+table.sched th{background:var(--bg);font-size:.75rem;color:var(--sub)}
+.foodbox{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-bottom:8px;background:var(--bg)}
+.foodbox .fname{font-weight:700}
+.foodbox .frow{font-size:.82rem;color:var(--sub);margin-top:3px}
+.foodbox .flag{display:inline-block;background:var(--warn-bg);color:var(--warn-ink);border:1px solid var(--warn-bd);border-radius:6px;padding:1px 7px;font-size:.72rem;margin-left:6px}
+.mapbtn{display:inline-flex;align-items:center;gap:4px;background:#fff;border:1.5px solid var(--accent);color:var(--accent);border-radius:20px;padding:9px 14px;font-size:.82rem;text-decoration:none;margin-top:6px;font-weight:600;min-height:40px}
+.mapbtn:hover{background:var(--accent);color:#fff}
+.resbtn{display:inline-flex;align-items:center;gap:4px;background:var(--accent2);border:1.5px solid var(--accent2);color:#fff;border-radius:20px;padding:9px 14px;font-size:.82rem;text-decoration:none;margin-top:6px;font-weight:700;min-height:40px}
+.resbtn:hover{filter:brightness(.92)}
+.costtable{width:100%;border-collapse:collapse;font-size:.85rem;margin-top:4px}
+.costtable th,.costtable td{border:1px solid var(--line);padding:6px 8px;text-align:right}
+.costtable td:first-child,.costtable th:first-child{text-align:left}
+.costtable tr.totalrow{font-weight:700;background:var(--chip)}
+.notebox{font-size:.82rem;color:var(--sub);border-left:3px solid var(--accent2);padding-left:10px;margin-top:6px}
+.warnbox{background:var(--warn-bg);border:1px solid var(--warn-bd);color:var(--warn-ink);border-radius:8px;padding:10px 12px;font-size:.85rem;margin-top:6px}
+details.toggle{border:1px solid var(--line);border-radius:10px;padding:8px 12px;margin-bottom:8px;background:var(--bg)}
+details.toggle summary{cursor:pointer;font-weight:700;font-size:.88rem;color:var(--accent)}
+details.toggle .body{margin-top:8px}
+
+/* ---------- NYE ---------- */
+.nyehero{background:linear-gradient(180deg,#0b1e2e,#122a3c);color:#fff;border-radius:16px;padding:0;overflow:hidden;margin-bottom:20px}
+.nyehero img{width:100%;height:260px;object-fit:cover;opacity:.85}
+.nyehero .inner{padding:20px}
+.nyehero h3{font-size:1.6rem;margin-bottom:4px}
+.nyecap{font-size:.75rem;opacity:.8;padding:6px 20px 16px}
+.nyegrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:680px){.nyegrid{grid-template-columns:1fr}}
+.nyecard{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;box-shadow:var(--shadow)}
+.nyecard h4{color:var(--accent)}
+.rank{background:var(--accent);color:#fff;border-radius:8px;padding:2px 10px;font-size:.78rem;display:inline-block;margin-bottom:6px}
+.rank.two{background:var(--accent2)}
+.nye-frame{border:2px solid var(--accent2);border-radius:18px;padding:16px;background:#fffaf2}
+.nye-badge{display:inline-block;background:var(--accent2);color:#fff;border-radius:20px;padding:5px 16px;font-size:.82rem;font-weight:700;margin-bottom:10px}
+#nye h2{border-left-color:var(--accent2)}
+
+/* ---------- CHECKLIST ---------- */
+.checklist{display:flex;flex-direction:column;gap:10px}
+.checkitem{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;display:flex;gap:12px;align-items:flex-start;box-shadow:var(--shadow)}
+.checkitem input[type=checkbox]{width:20px;height:20px;flex:none;margin-top:2px;accent-color:var(--accent)}
+.checkitem .ctitle{font-weight:700}
+.checkitem .cmeta{font-size:.78rem;color:var(--sub);margin-top:2px}
+.checkitem.checked{background:var(--chip)}
+.checkitem.checked .ctitle{text-decoration:line-through;color:var(--sub)}
+.badge{display:inline-block;border-radius:6px;padding:1px 8px;font-size:.72rem;margin-left:6px}
+.badge.must{background:#fde3e3;color:#a12a2a}
+.badge.strong{background:#fff0d9;color:#8a5a12}
+.badge.reco{background:#e4f0ea;color:#166d4f}
+.badge.opt{background:var(--chip);color:var(--sub)}
+.badge.status{margin-left:0}
+.statuswrap{margin-top:6px}
+.packgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
+
+/* ---------- TABLES generic ---------- */
+table.plain{width:100%;border-collapse:collapse;font-size:.85rem;margin:10px 0}
+table.plain th,table.plain td{border:1px solid var(--line);padding:7px 9px;text-align:left}
+table.plain th{background:var(--chip)}
+.scrollx{overflow-x:auto}
+
+/* ---------- flow diagram ---------- */
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:16px 0}
+.flow .box{background:var(--card);border:2px solid var(--accent);border-radius:10px;padding:10px 16px;font-weight:700;text-align:center}
+.flow .arrow{font-size:1.3rem;color:var(--accent2)}
+
+.tiercards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:14px 0}
+.tiercard{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;box-shadow:var(--shadow)}
+.tiercard h4{color:var(--accent2)}
+.tiercard .big{font-size:1.3rem;font-weight:700;color:var(--accent)}
+.tiercard .krw{color:var(--sub);font-size:.85rem}
+
+footer{margin-top:50px;padding:24px 0;border-top:1px solid var(--line);color:var(--sub);font-size:.8rem;text-align:center}
+
+/* ---------- top button ---------- */
+#topBtn{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));background:var(--accent);color:#fff;border:none;border-radius:50%;width:54px;height:54px;font-size:.85rem;box-shadow:var(--shadow);display:none;cursor:pointer;z-index:60}
+#topBtn.show{display:block}
+
+/* ---------- mobile optimization ---------- */
+@media(max-width:768px){
+  body{font-size:15.5px}
+  .btn{padding:13px 20px;min-height:46px}
+  .mapbtn,.resbtn{padding:10px 14px;min-height:42px}
+  .daycard{padding:16px}
+  .wrap{padding:0 14px}
+  table.sched,table.plain,table.costtable{font-size:.8rem}
+}
+@media(max-width:420px){
+  .hero h1{font-size:1.6rem}
+  .daycard{padding:13px}
+}
+
+/* ---------- print ---------- */
+@media print{
+  nav.topbar,#topBtn,#todayBtnWrap,.mapbtn,.resbtn,.checkitem input,.hamburger,.toggletext,.daysection-head .btnrow,.bigacc-chev{display:none!important}
+  .section{padding:14px 0}
+  .daycard{break-inside:avoid;box-shadow:none;border:1px solid #999}
+  .daybody{max-height:none!important;opacity:1!important;overflow:visible!important;margin-top:12px!important}
+  .bigacc-body{max-height:none!important;opacity:1!important;overflow:visible!important;margin-top:12px!important}
+  .bigacc-head{cursor:default}
+  body{background:#fff}
+  a::after{content:" (" attr(href) ")";font-size:.7em;color:#555}
+}
+</style>
+</head>
+<body>
+
+<nav class="topbar">
+  <div class="navrow">
+    <span class="brand">Sydney Trip</span>
+    <button class="hamburger" id="hbBtn" aria-label="메뉴">☰</button>
+    <div class="navlinks" id="navlinks">
+      <a href="#home">홈</a>
+      <a href="#overview">전체일정</a>
+      <a href="#days">날짜별 일정</a>
+      <a href="#nye">NYE</a>
+      <a href="#reservations">예약</a>
+      <a href="#transport">교통</a>
+      <a href="#food">맛집</a>
+      <a href="#cost">여행경비</a>
+      <a href="#packing">준비물</a>
+      <a href="#credits">사진출처</a>
+    </div>
+  </div>
+</nav>
+
+<section id="home" class="hero">
+  <img src="images/opera_house.jpg" alt="Sydney Opera House and Harbour Bridge">
+  <div class="hero-text">
+    <div class="inner">
+      <h1>Sydney Family Trip</h1>
+      <div class="sub">2026.12.25 - 2027.01.09</div>
+      <div class="meta">
+        <span>🏠 Oatlands 숙소</span>
+        <span>👨‍👩‍👦 성인 3명</span>
+        <span>📅 16일</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="homecards">
+    <div class="homecard"><div class="k">여행기간</div><div class="v">2026.12.25 – 2027.01.09</div></div>
+    <div class="homecard"><div class="k">숙소</div><div class="v">Oatlands, NSW</div></div>
+    <div class="homecard"><div class="k">총 여행일수</div><div class="v">16일 (15박)</div></div>
+    <div class="homecard"><div class="k">예상 여행경비(일반형·3인)</div><div class="v">약 $4,610 (약 ₩438만)</div></div>
+    <div class="homecard"><div class="k">다음 중요 예약</div><div class="v">Cahill Expressway 응모<br><span style="font-weight:400;font-size:.8rem">~2026-10-02 마감</span></div></div>
+    <div class="homecard"><div class="k">NYE 일정</div><div class="v">12/31 Cahill Expressway<br><span style="font-weight:400;font-size:.8rem">1순위 전략</span></div></div>
+  </div>
+
+  <div id="todayBtnWrap">
+    <button class="btn" onclick="goToday()">📍 오늘의 일정</button>
+    <div id="todayResult"></div>
+  </div>
+</div>
+
+<section id="overview" class="section wrap">
+  <h2>전체 일정 (16일 한눈에 보기)</h2>
+  <p class="lead">카드를 누르면 아래 날짜별 상세 일정으로 이동합니다.</p>
+  <div class="overviewgrid" id="overviewGrid"></div>
+</section>
+
+<section id="days" class="section wrap">
+  <div class="daysection-head">
+    <h2 style="margin-bottom:0">날짜별 상세 일정</h2>
+    <div class="btnrow">
+      <button class="smallbtn" onclick="expandAllDays()">모두 펼치기</button>
+      <button class="smallbtn" onclick="collapseAllDays()">모두 접기</button>
+    </div>
+  </div>
+  <p class="lead">카드를 누르면 시간대별 일정·맛집·지도·비용 등 상세 내용이 펼쳐집니다. sydney_trip_plan.md의 16일 전체 일정을 그대로 담았습니다.</p>
+  <div id="dayCards"></div>
+</section>
+
+<section id="nye" class="section wrap bigacc">
+  <div class="bigacc-head" role="button" tabindex="0" onclick="toggleSection('nye')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleSection('nye')}">
+    <div>
+      <span class="nye-badge">🎆 여행 중 가장 중요한 하루</span>
+      <h2>Sydney New Year's Eve 2026</h2>
+    </div>
+    <span class="bigacc-chev">▾</span>
+  </div>
+  <p class="bigacc-summary">🎆 12월 31일 Sydney New Year's Eve 2026 · 예약/응모 중요</p>
+  <div class="bigacc-body">
+<div class="nye-frame">
+  <div class="nyehero">
+    <img src="images/nye_fireworks.jpg" alt="Sydney New Year's Eve Fireworks">
+    <div class="inner"><h3>12월 31일 — 특별 일정</h3><div class="sub">다른 일정과 완전히 분리해서 별도로 관리합니다</div></div>
+    <div class="nyecap">⚠ 위 사진은 2024년 시드니 NYE 불꽃놀이 촬영본(대표 이미지)입니다. 2026/2027 실제 불꽃놀이 모습과 다를 수 있습니다.</div>
+  </div>
+
+  <div class="nyegrid">
+    <div class="nyecard">
+      <span class="rank">1순위</span>
+      <h4>Cahill Expressway 무료 응모 [2026 확정]</h4>
+      <ul>
+        <li>응모 기간: <b>2026-09-03(목) 09:00 ~ 2026-10-02(금) 23:59</b> — <b style="color:var(--accent2)">현재 응모 진행 중</b></li>
+        <li>총 8,000석(작년 대비 1,000석 증가), 1인당 최대 5매</li>
+        <li>세션: 9pm 패밀리 불꽃놀이(입장 18:30~20:45) / 자정 불꽃놀이(입장 21:45~23:45)</li>
+        <li>입퇴장: Conservatorium Road·Macquarie Street 모퉁이 (접근성 입구 Iron Wharf Place)</li>
+        <li>음식: 개인 도시락/음식 반입 가능, 현장 구매도 가능</li>
+        <li>주류: 반입·판매 모두 불가 (전면 금주 행사)</li>
+        <li>화장실: 장애인 화장실 포함 현장 비치 확인</li>
+        <li>당첨자 발표: 2026-10-12 ~ 12-04 사이 이메일 통보, 통보 후 2주 내 티켓 수령</li>
+        <li>유모차도 1인분 티켓 필요(생후 12개월 미만 아기띠 착용 시 불필요)</li>
+      </ul>
+      <a class="resbtn" target="_blank" rel="noopener noreferrer" href="https://nyecahillexpressway.com.au">🎫 응모 사이트</a>
+    </div>
+    <div class="nyecard">
+      <span class="rank two">2순위</span>
+      <h4>Sydney Opera House Forecourt [2026 확정]</h4>
+      <ul>
+        <li>무료, 6,000석. <b>예약 오픈: 2026-12-26(토) 10:00</b></li>
+        <li>입장 가능 시간: 12:00~15:00 (15시 이후 입장 불가), 재입장 불가</li>
+        <li>접근: Macquarie Street. 1인/1건당 최대 6매</li>
+        <li>접근성 좌석은 별도 시간대(16:00~22:00), 1인 최대 4매</li>
+        <li>음식: 개인 간식/음식 반입 가능. 주류(BYO)는 불가하나 현장 라이선스 바에서 구매 가능</li>
+        <li>화장실: 장애인 화장실 및 성인용 기저귀 교체시설(호이스트 없음), 현장 식음료 매장·식수대 운영</li>
+        <li>반입 금지: 술, 유리·금속용기, 유모차, 125cm 이상 우산/차양/텐트, 드론, 전문 카메라</li>
+        <li>작년 매진 이력 있어 오픈 시각 즉시 접속 권장</li>
+      </ul>
+      <a class="resbtn" target="_blank" rel="noopener noreferrer" href="https://sydneyoperahouse.com">🎫 등록 사이트</a>
+    </div>
+  </div>
+
+  <div class="daycard" style="margin-top:16px">
+    <div class="field"><div class="flabel">전략</div>
+      <p>Cahill Expressway는 세션을 선택할 수 있어(자정만 골라도 됨) "안전하게 귀가" 목표에 더 적합합니다. Forecourt는 낮 12시부터 자정까지 나갈 수 없어 사실상 하루 종일(9시간+) 머물러야 하는 트레이드오프가 있습니다.
+      <br><b>1순위: Cahill Expressway 응모(10/2 마감) → 2순위: Opera House Forecourt(12/26 10am) → 3순위: 무료 비지정 장소</b></p>
+    </div>
+
+    <div class="field"><div class="flabel">예약 일정 요약</div>
+      <table class="plain"><tr><th></th><th>Cahill Expressway</th><th>Opera House Forecourt</th></tr>
+      <tr><td>예약</td><td>응모(추첨)</td><td>선착순 등록</td></tr>
+      <tr><td>시기</td><td>2026-09-03~10-02</td><td>2026-12-26 10:00~</td></tr>
+      <tr><td>비용</td><td>$0</td><td>$0</td></tr>
+      <tr><td>현재 상태</td><td style="color:var(--accent);font-weight:700">예약 가능(응모 진행 중)</td><td>아직 예약 불가</td></tr>
+      </table>
+    </div>
+
+    <div class="field"><div class="flabel">입장시간</div><p>Cahill 자정 세션: 21:45~23:45 입장 / Forecourt: 12:00~15:00 입장(재입장 불가)</p></div>
+
+    <div class="field"><div class="flabel">준비물 (NYE 전용)</div>
+      <div class="pillrow"><span class="pill">도시락·간식·물</span><span class="pill">우비(작은 우산만 가능)</span><span class="pill">보조배터리</span><span class="pill">편한 신발</span></div>
+    </div>
+
+    <div class="field"><div class="flabel">음식/음료 관련 주의</div>
+      <p>두 장소 모두 개인 도시락/음식 반입은 가능하지만, <b>Cahill Expressway는 주류 반입·판매 전면 금지</b>이며 Opera House Forecourt는 <b>BYO 주류 불가(현장 라이선스 바 구매만 가능)</b>입니다.</p>
+    </div>
+
+    <div class="field"><div class="flabel">화장실</div><p>두 곳 모두 장애인 화장실 비치 확인됨. Opera House Forecourt는 성인용 기저귀 교체시설도 있음(호이스트 없음).</p></div>
+
+    <div class="field"><div class="flabel">⚠ 교통통제 / Circular Quay 주변 통제 — 확정되지 않음</div>
+      <div class="warnbox">
+        City of Sydney 공식 교통/도로통제 페이지(sydneynewyearseve.com/transport, /road-closures)는 2026-09-09 기준 <b>"2026년 세부 교통 정보는 11월 공개 예정"</b>이라고 명시되어 있습니다. ⚠ 2026년 공식 발표 대기<br><br>
+        아래는 모두 2025년(또는 그 이전) 자료이며, 패턴은 매년 비슷하게 반복되어 왔지만 2026년 확정치가 아닙니다 — 11월 이후 반드시 재확인하세요. ⚠ 여행 직전 재확인
+        <ul>
+          <li>Circular Quay역 열차 미정차 시간대(작년 기준 오후 3시~자정), Circular Quay 버스(낮 12시~) 및 페리(오후 5시~) 중단</li>
+          <li>Harbour Bridge 차량 통행 중단(밤 11시~새벽 1시 30분, 열차는 계속 운행)</li>
+          <li>"46시간 연속 운행, 평시 대비 40% 증편" 수치는 2024→2025년 철도노조 파업 관련 보도자료에서 나온 것으로 2026년과 무관할 수 있음</li>
+          <li>심야 지정 택시승강장(작년 기준 Goulburn St, Liverpool St, Sussex St 등) — 올해도 유사할 가능성 높으나 공식 재공지 필요</li>
+          <li>서부선(Parramatta 방향) 심야 배차간격을 명시한 공식 자료는 어느 해에도 없음 — 당일은 Opal Travel 앱 실시간 정보에 의존</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="field"><div class="flabel">자정 불꽃놀이 당일 일정 (Cahill Expressway 당첨 가정)</div>
+      <table class="sched"><tr><th>시간</th><th>활동</th><th>이동방법</th></tr>
+      <tr><td>12:30</td><td>숙소 출발, 도시락/간식/물 준비</td><td>버스546 → Parramatta → 열차</td></tr>
+      <tr><td>14:00</td><td>Town Hall 또는 Martin Place 하차, 시내 산책 및 이른 저녁</td><td>도보</td></tr>
+      <tr><td>19:00</td><td>9pm 세션은 생략, 자정 세션 입장(21:45)까지 대기 또는 무료구역서 9pm 관람 후 이동</td><td>도보</td></tr>
+      <tr><td>21:45</td><td>Cahill Expressway 입장</td><td>도보</td></tr>
+      <tr><td>24:00</td><td>자정 불꽃놀이 관람</td><td>-</td></tr>
+      <tr><td>00:15~00:30</td><td>관람 종료, Town Hall/Central 방향 도보 이동 시작</td><td>도보(혼잡, 30~60분+ 예상)</td></tr>
+      <tr><td>01:00~01:30</td><td>Town Hall/Central역에서 T1 열차 탑승 → Parramatta</td><td>열차(심야 증편, Opal 앱 실시간 확인)</td></tr>
+      <tr><td>02:00경</td><td>Parramatta 도착 후 Oatlands 숙소까지 마지막 구간</td><td>택시/Uber(짧은 구간)</td></tr>
+      </table>
+    </div>
+
+    <div class="field"><div class="flabel">Oatlands 귀가방법 (매우 중요)</div>
+      <div class="warnbox">
+        <b>CBD에서 바로 Oatlands까지 Uber 시도 금지.</b> Uber 서지 요금이 자정~새벽 사이 평소의 몇 배까지 치솟고 CBD 내 픽업이 도로통제로 어렵습니다.<br>
+        전략: <b>열차로 Parramatta까지 이동 → 짧은 구간만 택시/Uber로 전환</b>. Circular Quay 인근에서 관람하면 귀갓길이 가장 혼잡하므로 Town Hall/Central 접근이 쉬운 장소(Cahill Expressway)를 우선 선택하세요. 자정 이후 도보·대기시간이 1시간 이상 걸릴 수 있어 아이 체력 관리가 필요합니다.
+      </div>
+    </div>
+
+    <div class="field"><div class="flabel">예약 실패 시 대안</div>
+      <ol>
+        <li>Cahill Expressway 응모 낙첨 시 → Opera House Forecourt 등록(12/26 10am) 시도 — 단, 종일 체류 각오 필요</li>
+        <li>Forecourt도 실패 시 → Pirrama Park 등 City of Sydney 공식 무료 비지정 관람 포인트로 이동, 늦어도 이른 오후(13~14시)까지 자리 선점 필요</li>
+        <li>그래도 인파가 부담스럽다면 → 유료 옵션(하버 크루즈, 루프탑 등, 1인당 수백 달러 이상)도 고려 가능하나 우선순위는 낮음</li>
+        <li>최후 대안 → Parramatta 인근 로컬 뷰포인트 또는 숙소에서 TV 중계 시청</li>
+      </ol>
+    </div>
+    <p style="text-align:center;margin-top:10px"><button class="btn ghost" onclick="openDay(7);document.getElementById('day-7').scrollIntoView({behavior:'smooth'});flashDay(7)">→ 7일차 카드에서 식사·비용 상세 보기</button></p>
+  </div>
+</div>
+  </div>
+</section>
+
+<section id="reservations" class="section wrap bigacc">
+  <div class="bigacc-head" role="button" tabindex="0" onclick="toggleSection('reservations')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleSection('reservations')}">
+    <h2>예약 체크리스트</h2>
+    <span class="bigacc-chev">▾</span>
+  </div>
+  <p class="bigacc-summary" id="resSummary">예약 필요 항목 준비 중…</p>
+  <div class="bigacc-body">
+  <p class="lead">체크 상태는 이 브라우저(localStorage)에 저장되어 다시 열어도 유지됩니다. 세부 근거(비용·취소규정)는 각 Day 카드의 "예약 필요 여부"를 참고하세요. 모든 정보는 2026-09-10 기준 조회 결과이며 금액·정책은 변동될 수 있습니다.</p>
+  <div class="checklist" id="reservationList"></div>
+  </div>
+</section>
+
+<section id="transport" class="section wrap bigacc">
+  <div class="bigacc-head" role="button" tabindex="0" onclick="toggleSection('transport')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleSection('transport')}">
+    <h2>교통 가이드 — Oatlands 기준</h2>
+    <span class="bigacc-chev">▾</span>
+  </div>
+  <div class="bigacc-body">
+  <div class="flow">
+    <div class="box">Oatlands 숙소</div><div class="arrow">→</div>
+    <div class="box">버스 546</div><div class="arrow">→</div>
+    <div class="box">Parramatta Station</div><div class="arrow">→</div>
+    <div class="box">Sydney CBD / 관광지</div>
+  </div>
+  <div class="daycard">
+    <div class="field"><div class="flabel">기본 노선: 버스 546번 (Busways, Parramatta ↔ Epping, Oatlands·North Rocks 경유)</div>
+      <ul>
+        <li>정류장: <b>Belmore Rd East opp Charles St, Oatlands</b></li>
+        <li>공식 시간표(2026-07-20 발효분): 7일 운행, 평일 첨두시간 약 15~35분 간격, 평일 낮/저녁 및 주말·공휴일은 대체로 약 1시간 간격</li>
+        <li>Parramatta Station까지 소요시간: 약 20~23분</li>
+        <li class="warnbox">⚠ 숙소에서 정류장까지 정확한 도보 시간은 공식 지도로 미확인 — 출발 전 Transport NSW Trip Planner에서 직접 재확인 필요</li>
+        <li>552번 버스는 존재하지만 <b>정기 이용 비권장</b>(배차 매우 불규칙, 공식 문서상 감축 대상 노선)</li>
+      </ul>
+    </div>
+    <div class="field"><div class="flabel">대안: Parramatta 경전철(L4) Telopea역</div>
+      <p>숙소에서 도보 약 15분(미검증) 거리, 평일 주간 약 9분 간격으로 546번보다 자주 운행(간접 확인). 도보가 3~4배 길어 아이·짐 많은 날은 불리하지만 배차가 촘촘해 시간이 급할 때 유리.</p>
+    </div>
+    <div class="field"><div class="flabel">Parramatta역 환승</div><p>T1 노선 주요 환승역. Parramatta → Central 약 23~30분, Central → Circular Quay 약 8분, Town Hall → Circular Quay 약 5분.</p></div>
+    <div class="field"><div class="flabel">Opal / Contactless</div><p>평일(월~목) 1인 1일 상한 <b>$19.30</b>, 금~일 및 공휴일 1인 1일 상한 <b>$9.65</b> (opal.com.au 기준, ⚠ 인상 가능성 있어 재확인 필요). Opal 카드 또는 컨택리스 신용/체크카드 모두 사용 가능.</p></div>
+    <div class="field"><div class="flabel">Train / Ferry</div><p>T1 노선이 Parramatta~시내 핵심축. 페리는 F1(Manly), F2(Taronga), F3(Parramatta River, 55~80분·관광용), F9(Watsons Bay) 등을 이 일정에서 사용.</p></div>
+    <div class="field"><div class="flabel">Metro</div><p>Sydney Metro West는 2032년 완공 목표로 <b>여행 기간 중 운행하지 않음</b>.</p></div>
+    <div class="field"><div class="flabel">Uber</div><p>환승 많고 편도 1.5시간 이상인 구간(Bondi 등)은 대중교통이 Uber보다 저렴하지만 훨씬 오래 걸립니다. 날짜별로 대중교통/Uber/렌터카 중 권장 방식을 각 Day 카드에 명시했습니다. NYE 당일은 CBD→Oatlands 직행 Uber를 시도하지 말고 Parramatta까지 열차, 이후 짧은 구간만 Uber/택시를 이용하세요.</p></div>
+    <div class="field"><div class="flabel">렌터카 추천일</div><p><b>2027-01-02 (Blue Mountains)</b>만 렌터카 확정 추천. Featherdale(1/4)은 단일 목적지라 "기차+짧은 구간 Uber" 조합이 더 효율적. 그 외 날짜는 대중교통이 편리하고 도심 주차·혼잡 문제로 오히려 비효율적입니다.</p></div>
+    <div class="warnbox">⚠ 출발 직전 재확인: 숙소→정류장 도보 경로, 546번 최신 시간표, 552번 노선 폐지·통합 여부, Featherdale 연결버스 번호(725/729 상충), Bondi 구간 버스(333/380/381/382) 배차간격.</div>
+  </div>
+  </div>
+</section>
+
+<section id="weather" class="section wrap bigacc">
+  <div class="bigacc-head" role="button" tabindex="0" onclick="toggleSection('weather')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleSection('weather')}">
+    <h2>날씨에 따른 일정 변경</h2>
+    <span class="bigacc-chev">▾</span>
+  </div>
+  <div class="bigacc-body">
+  <p class="lead">아래 4개 일정은 날씨를 보고 서로 순서를 바꿀 수 있도록 설계했습니다. 맑은 날엔 야외 활동을, 흐리거나 비 오는 날엔 실내 대체 일정을 배치하세요.</p>
+  <div class="scrollx"><table class="plain">
+    <tr><th>야외 일정</th><th>날짜</th><th>우천 시 실내 대체</th></tr>
+    <tr><td>Bondi Beach + 해안산책</td><td>12/29</td><td>Darling Harbour 실내(SEA LIFE/WILD LIFE) 또는 QVB/Pitt St Mall 쇼핑</td></tr>
+    <tr><td>Blue Mountains</td><td>01/02</td><td>1/7 자유일과 교환 + QVB/Darling Harbour 실내 쇼핑</td></tr>
+    <tr><td>Manly Beach</td><td>01/03</td><td>Darling Harbour 실내 또는 1/7 자유일과 교환</td></tr>
+    <tr><td>Watsons Bay</td><td>01/06</td><td>Darling Harbour 실내(1/5)와 교환</td></tr>
+  </table></div>
+  <p class="notebox">보충 슬롯: 1/7 자유일, 1/5 Darling Harbour(실내 비중 高)를 우천 시 대체지로 우선 활용하세요.</p>
+  </div>
+</section>
+
+<section id="food" class="section wrap bigacc">
+  <div class="bigacc-head" role="button" tabindex="0" onclick="toggleSection('food')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleSection('food')}">
+    <h2>맛집/카페 모아보기</h2>
+    <span class="bigacc-chev">▾</span>
+  </div>
+  <div class="bigacc-body">
+  <p class="lead">각 날짜에 이미 배치된 점심·카페·저녁을 날짜순으로 모았습니다. 상세(가격·예약·지도)는 각 항목 또는 날짜별 카드를 참고하세요.</p>
+  <div id="foodList"></div>
+  </div>
+</section>
+
+<section id="cost" class="section wrap bigacc">
+  <div class="bigacc-head" role="button" tabindex="0" onclick="toggleSection('cost')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleSection('cost')}">
+    <h2>여행경비</h2>
+    <span class="bigacc-chev">▾</span>
+  </div>
+  <div class="bigacc-body">
+  <p class="lead"><b>성인 3명 기준, 국제선 항공료·Oatlands 숙박비는 제외</b>한 금액입니다. 환율 <b>1 AUD = 950원</b>(예시 고정환율) 단순 환산이며, <b>실제 여행 시 환율 및 현지 가격에 따라 달라질 수 있습니다.</b></p>
+
+  <div class="tiercards">
+    <div class="tiercard"><h4>① 절약형</h4><div class="big">1인 약 $1,450</div><div class="krw">약 ₩1,378,000</div><div class="big" style="margin-top:8px">3인 약 $4,350</div><div class="krw">약 ₩4,133,000 (약 413만원)</div></div>
+    <div class="tiercard"><h4>② 일반형</h4><div class="big">1인 약 $1,537</div><div class="krw">약 ₩1,460,000</div><div class="big" style="margin-top:8px">3인 약 $4,610</div><div class="krw">약 ₩4,380,000 (약 438만원)</div></div>
+    <div class="tiercard"><h4>③ 여유형</h4><div class="big">1인 약 $1,640</div><div class="krw">약 ₩1,558,000</div><div class="big" style="margin-top:8px">3인 약 $4,920</div><div class="krw">약 ₩4,674,000 (약 467만원)</div></div>
+  </div>
+  <p class="notebox">절약형: 선택 입장료(Opera 투어·아쿠아리움·Icebergs·Sydney Tower Eye) 전부 제외, 식사도 저렴한 대안 선택. 일반형: 이 계획서의 "기본안" 그대로. 여유형: 선택 항목 모두 포함, 식사도 더 비싼 대안 선택. 렌터카·NYE 심야 택시·공항 이동 같은 변동성 큰 항목은 실제 견적에 따라 전체 금액이 달라질 수 있습니다.</p>
+
+  <h3 style="margin-top:26px">날짜별 전체 비용표</h3>
+  <div class="scrollx"><table class="plain" id="costTable"></table></div>
+  </div>
+</section>
+
+<section id="packing" class="section wrap bigacc">
+  <div class="bigacc-head" role="button" tabindex="0" onclick="toggleSection('packing')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleSection('packing')}">
+    <h2>준비물 체크리스트</h2>
+    <span class="bigacc-chev">▾</span>
+  </div>
+  <p class="bigacc-summary" id="packSummary">준비물 준비 중…</p>
+  <div class="bigacc-body">
+  <p class="lead">체크 상태는 이 브라우저에 저장됩니다.</p>
+  <div class="packgrid" id="packingList"></div>
+  </div>
+</section>
+
+<section id="credits" class="section wrap bigacc">
+  <div class="bigacc-head" role="button" tabindex="0" onclick="toggleSection('credits')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleSection('credits')}">
+    <h2>사진 출처 및 라이선스</h2>
+    <span class="bigacc-chev">▾</span>
+  </div>
+  <div class="bigacc-body">
+  <p class="lead">모든 사진은 Wikimedia Commons에서 재사용 조건(라이선스)이 명확한 파일만 선별해 사용했습니다. CC BY / CC BY-SA 조건에 따라 저작자를 표기합니다.</p>
+  <div class="scrollx"><table class="plain">
+    <tr><th>사진명</th><th>저작자</th><th>출처</th><th>라이선스</th></tr>
+    <tr><td>opera_house.jpg — Sydney Opera House + Harbour Bridge</td><td>J woodward</td><td><a target="_blank" rel="noopener noreferrer" href="https://commons.wikimedia.org/wiki/File:Sydney_Opera_House_and_Harbour_Bridge.jpg">Wikimedia Commons</a></td><td>CC BY-SA 3.0</td></tr>
+    <tr><td>botanic_garden.jpg — Royal Botanic Garden</td><td>Maksym Kozlenko</td><td><a target="_blank" rel="noopener noreferrer" href="https://commons.wikimedia.org/wiki/File:Royal_Botanic_Gardens,_Mrs_Macquaries_Road,_Sydney_NSW_2000,_Australia_-_panoramio.jpg">Wikimedia Commons</a></td><td>CC BY-SA 3.0</td></tr>
+    <tr><td>bondi.jpg — Bondi Beach</td><td>Maksym Kozlenko</td><td><a target="_blank" rel="noopener noreferrer" href="https://commons.wikimedia.org/wiki/File:2022-10-22_Bondi_Beach.jpg">Wikimedia Commons</a></td><td>CC BY-SA 4.0</td></tr>
+    <tr><td>taronga_zoo.jpg — Taronga Zoo</td><td>Robert Linsdell</td><td><a target="_blank" rel="noopener noreferrer" href="https://commons.wikimedia.org/wiki/File:Taronga_Zoo,_Sydney_(483464)_(9440360701).jpg">Wikimedia Commons</a></td><td>CC BY 2.0</td></tr>
+    <tr><td>nye_fireworks.jpg — Sydney NYE Fireworks(2024년 촬영, 대표이미지)</td><td>JustARandomEditor123</td><td><a target="_blank" rel="noopener noreferrer" href="https://commons.wikimedia.org/wiki/File:Sydney_New_Year%27s_Eve_Fireworks_2024.jpg">Wikimedia Commons</a></td><td>CC BY-SA 4.0</td></tr>
+    <tr><td>blue_mountains.jpg — Blue Mountains / Three Sisters</td><td>Dietmar Rabich</td><td><a target="_blank" rel="noopener noreferrer" href="https://commons.wikimedia.org/wiki/File:Blue_Mountains_National_Park_(AU),_Three_Sisters_--_2019_--_1983.jpg">Wikimedia Commons</a></td><td>CC BY-SA 4.0</td></tr>
+    <tr><td>manly.jpg — Manly Beach</td><td>Hardlinerr</td><td><a target="_blank" rel="noopener noreferrer" href="https://commons.wikimedia.org/wiki/File:Summer_days_at_Manly_Beach.jpg">Wikimedia Commons</a></td><td>CC BY-SA 4.0</td></tr>
+    <tr><td>featherdale.jpg — Featherdale Sydney Wildlife Park</td><td>Ypsilon</td><td><a target="_blank" rel="noopener noreferrer" href="https://commons.wikimedia.org/wiki/File:Featherdale_entrance.jpg">Wikimedia Commons</a></td><td>CC0 1.0</td></tr>
+    <tr><td>darling_harbour.jpg — Barangaroo Reserve</td><td>MDRX</td><td><a target="_blank" rel="noopener noreferrer" href="https://commons.wikimedia.org/wiki/File:Barangaroo_Sydney_Australia_01.jpg">Wikimedia Commons</a></td><td>CC BY-SA 4.0</td></tr>
+    <tr><td>watsons_bay.jpg — Watsons Bay / The Gap</td><td>Ymblanter</td><td><a target="_blank" rel="noopener noreferrer" href="https://commons.wikimedia.org/wiki/File:Sydney_Watsons_Bay_Tasman_Sea_coast_seen_from_Coastal_Clifftop_Walkway_01.jpg">Wikimedia Commons</a></td><td>CC BY-SA 4.0</td></tr>
+  </table></div>
+  <p class="notebox">전체 출처 기록은 image_credits.md 파일을 참고하세요. 이 페이지는 sydney_trip_plan.md와 image_credits.md의 내용을 옮긴 것이며, 두 원본 파일은 수정하지 않았습니다.</p>
+  </div>
+</section>
+
+<footer class="wrap">
+  Sydney Family Trip 2026-2027 · 개인 여행 가이드 (오프라인 열람 가능) · 출처: sydney_trip_plan.md
+</footer>
+
+<button id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑ TOP</button>
+
+<script>
+/* ============ DATA ============ */
+const DAYS = [
+{id:1,date:"2026-12-25",wd:"금",tag:"크리스마스",region:"Oatlands / Parramatta",theme:`도착 및 휴식. 장거리 이동 없이 쉬는 날. 크리스마스 당일은 대다수 상점·레스토랑 휴무.`,intensity:"매우 여유",transport:"대중교통(도보+버스546), 짧은 거리라 문제없음",depart:"10:30",
+ schedule:[["10:30","숙소 출발, 근처 산책","-","도보"],["11:00","Parramatta Park 산책 (Old Government House 외관, 강변 산책로)","1.5~2시간","버스 546 (~20~23분)"],["13:00","점심 (전날 마트 구입 음식/도시락)","-","도보"],["14:00","숙소 복귀, 휴식","-","버스 546"]],
+ lunch:[{n:"도시락/마트 음식 (자체 준비)",note:"크리스마스 당일은 대다수 식당·카페 휴무 — 전날(12/24) 장을 봐 Parramatta Park에서 피크닉 권장",price:"1인 약 $10~15(장보기 비용)",when:"Parramatta Park 산책 중",res:"불필요"},
+   {n:"Parramatta Leagues Club (Jacks Cucina e Bistro)",note:"2025년 크리스마스 데이 런치 운영 이력 있는 이탈리안 세트 메뉴 — 외식 원할 경우 대안",price:"1인 약 $60~90(추정)",when:"Parramatta Park 방문 전후",res:"필수",map:"https://www.google.com/maps/search/?api=1&query=Parramatta+Leagues+Club",flag:"2026년 크리스마스 데이 운영 여부·메뉴·가격 미확정"}],
+ cafe:[{n:"카페 대부분 휴무",note:"특정 상호 대신 12/24 장보기 시 원두·드립백 구매 권장",price:"-",when:"-",res:"-",flag:"인근 카페 크리스마스 당일 영업 여부 전반 미확인"}],
+ dinner:[{n:"숙소 내 간단 식사 (자체 준비)",note:"저녁에도 문 연 곳이 거의 없어 전날 장본 재료로 해결 권장",price:"-",when:"-",res:"불필요",flag:"인근 식당 크리스마스 당일 영업 여부 일괄 미확인"}],
+ extraMaps:[{label:"Parramatta Park",url:"https://www.google.com/maps/search/?api=1&query=Parramatta+Park+Sydney"},{label:"Woolworths Carlingford Court",url:"https://www.google.com/maps/search/?api=1&query=Woolworths+Carlingford+Court"}],
+ returnTime:"14:30~15:00",reservation:"없음(레스토랑 이용 원할 시 사전예약 필수)",
+ cost:{rows:[["교통 (버스546)","$10","$3"],["입장료","$0","$0"],["점심 (도시락/마트)","$38","$13"],["저녁 (숙소 내 자체 식사)","$24","$8"],["카페/간식","$0 (휴무)","$0"],["기타(잡비)","$5","$2"]],total:["약 $75 (약 ₩71,000)","약 $25 (약 ₩24,000)"],note:"식사 대부분 도시락/자체 조리 가정. 외식(Parramatta Leagues Club) 선택 시 3인 약 $180~270 추가 — ⚠ 여행 직전 재확인."},
+ notice:"12/24 저녁 또는 12/25 이른 오전 마트 장보기 권장(당일은 대형마트도 대부분 휴무). 확인된 대형마트: Woolworths Carlingford Court. Coles Northmead는 출발 전 재확인.",
+ rain:"원래 휴식일이라 영향 없음.",photo:null},
+
+{id:2,date:"2026-12-26",wd:"토",tag:"박싱데이",region:"Parramatta",theme:"CBD의 극심한 인파를 피해 Westfield Parramatta 중심 쇼핑.",intensity:"여유",transport:"대중교통(버스546)",depart:"08:00",
+ schedule:[["08:00","숙소 출발","-","버스 546 (~20~23분)"],["08:25","Westfield Parramatta 도착, 쇼핑","3~4시간","도보"],["12:30","점심 (푸드코트)","1시간","도보"],["14:00","오후: 추가 쇼핑 또는 Parramatta Park 산책","1.5~2시간","도보"],["16:30","숙소 복귀","-","버스 546"]],
+ lunch:[{n:"Westfield Parramatta Food Court (Hero Sushi 또는 Baci Pasta Cafe)",note:"쇼핑 중 빠르고 저렴하게 즐기는 스시/파스타",price:"1인 약 $15~20",when:"오전 쇼핑 후",res:"불필요",map:"https://www.google.com/maps/search/?api=1&query=Westfield+Parramatta",flag:"Boxing Day 매장별 영업시간"}],
+ cafe:[{n:"Circa Espresso",note:"Parramatta 로컬들이 즐겨찾는 라네웨이 스타일 카페, 커피·베이커리",price:"1인 약 $10~15",when:"오전 쇼핑 전후",res:"불필요",map:"https://www.google.com/maps/search/?api=1&query=Circa+Espresso+Parramatta",flag:"Boxing Day 영업시간"}],
+ dinner:[{n:"Al Aseel Parramatta",note:"레바논 요리, 치킨 샤와르마 평이 좋고 가족 단위로 편안한 분위기",price:"1인 약 $25~35",when:"쇼핑 마친 저녁",res:"주말 저녁 권장",map:"https://www.google.com/maps/search/?api=1&query=Al+Aseel+Restaurant+Parramatta",flag:"Boxing Day 영업시간"}],
+ extraMaps:[],
+ returnTime:"16:30~17:00",reservation:"없음",
+ cost:{rows:[["교통 (버스546)","$18","$6"],["입장료 (쇼핑 지출 별도)","$0","$0"],["점심 (Westfield 푸드코트)","$53","$18"],["저녁 (Al Aseel)","$90","$30"],["카페 (Circa Espresso)","$38","$13"],["기타(잡비)","$10","$3"]],total:["약 $209 (약 ₩199,000)","약 $70 (약 ₩67,000)"],note:"쇼핑 지출은 별도. Boxing Day 특별 영업시간은 ⚠ 여행 직전 재확인."},
+ notice:"Boxing Day 오픈 시간은 매년 공지되므로 출발 전 westfield.com.au 재확인. 혼잡 회피: Westfield Sydney(CBD) 대신 Westfield Parramatta 1순위 권장. 대안: DFO Homebush, Birkenhead Point Outlet.",
+ rain:"실내 위주라 영향 적음.",photo:null},
+
+{id:3,date:"2026-12-27",wd:"일",tag:null,region:"Circular Quay / The Rocks",theme:"하버 북동쪽 랜드마크 클러스터(Opera House+Rocks+Harbour Bridge), 도보 연결.",intensity:"다소 바쁨 (이동거리가 길어서이지 활동 자체가 과한 것은 아님)",transport:"대중교통",depart:"09:00",
+ schedule:[["09:00","숙소 출발","-","버스546(~20~23분)→Parramatta역"],["09:30","Parramatta역 출발","-","T1 열차→Circular Quay(환승포함 약 40~50분)"],["10:20","Circular Quay 도착, 주변 산책","30분","도보"],["10:50","Sydney Opera House 외관·포어코트 관람 (가이드투어 선택)","1~1.5시간","도보"],["12:20","점심 (Circular Quay/The Rocks)","1시간","도보"],["13:30","The Rocks 골목 산책, 주말이면 The Rocks Markets(선택)","1~1.5시간","도보"],["15:00","Sydney Harbour Bridge 도보 횡단(무료) 또는 Pylon Lookout(선택)","1~1.5시간","도보"],["16:30","Circular Quay 복귀, 휴식","30분","도보"],["17:30","귀갓길 출발","-","열차→Parramatta→버스546"]],
+ lunch:[{n:"The Rocks Cafe",note:"1974년부터 이어온 역사 있는 캐주얼 카페 겸 레스토랑, 가족 단위 부담 없는 분위기",price:"1인 약 $25~35",when:"Opera House 관람 후 The Rocks 도착 무렵",res:"성수기 권장",map:"https://www.google.com/maps/search/?api=1&query=The+Rocks+Cafe+Sydney"},
+   {n:"Pancakes on the Rocks - The Rocks",note:"호주식 팬케이크 전문 체인, 아이 동반 가족에게 무난",price:"1인 약 $20~30",when:"위와 동일(택1)",res:"불필요(대기 가능)",map:"https://www.google.com/maps/search/?api=1&query=Pancakes+on+the+Rocks+The+Rocks+Sydney"}],
+ cafe:[{n:"MCA Cafe (Museum of Contemporary Art)",note:"Circular Quay·Opera House가 보이는 루프탑 전망, 커피와 가벼운 브런치",price:"1인 약 $12~18",when:"Circular Quay 도착 직후 또는 Rocks 산책 중",res:"불필요",map:"https://www.google.com/maps/search/?api=1&query=MCA+Cafe+Sydney"}],
+ dinner:[{n:"Pho Pasteur",note:"1992년부터 이어온 Parramatta 대표 베트남 쌀국수집, 가족 운영으로 빠르고 친절",price:"1인 약 $15~20",when:"Parramatta 복귀 후 저녁",res:"불필요",map:"https://www.google.com/maps/search/?api=1&query=Pho+Pasteur+Parramatta"}],
+ extraMaps:[{label:"Sydney Opera House",url:"https://www.google.com/maps/search/?api=1&query=Sydney+Opera+House"},{label:"The Rocks Sydney",url:"https://www.google.com/maps/search/?api=1&query=The+Rocks+Sydney"},{label:"Sydney Harbour Bridge",url:"https://www.google.com/maps/search/?api=1&query=Sydney+Harbour+Bridge"}],
+ returnTime:"18:30~19:00",reservation:"Opera House 가이드 투어(선택) 사전예매 권장. 일요일 정상 운영, 크리스마스·NYE 당일엔 투어 미운영 확인됨 — 12/27은 문제없음.",
+ resDetail:[{title:"Opera House 가이드 투어 (선택)",items:{"예약 필요 여부":"투어 참여 시 필수(선착순 매진 가능)","공식 예약 사이트":"sydneyoperahouse.com","예약 시기":"성수기(12~2월)라 최소 몇 주~1개월 전 예약 권장","예상 비용":"1시간 가이드 투어 성인 약 A$49, 어린이 약 A$30, 가족(성인2+어린이2) 약 A$124","취소/변경":"투어 전날 17:00까지 예약 마감 원칙","실제 예약 시점(2026-09-10 기준)":"지금부터 예약 가능, 늦어도 2026년 11월까지 확정 권장"}}],
+ cost:{rows:[["교통 (버스+열차, 일요일 상한)","$29","$10"],["입장료 (포어코트/브릿지 무료)","$0","$0"],["점심 (The Rocks Cafe)","$90","$30"],["저녁 (Pho Pasteur)","$53","$18"],["카페 (MCA Cafe)","$45","$15"],["기타(잡비)","$10","$3"]],total:["약 $227 (약 ₩216,000)","약 $76 (약 ₩72,000)"],note:"Opera House 가이드 투어(선택) 참여 시 3인 약 $150 추가 → 합계 약 $377. Pylon Lookout(선택) 가격은 ⚠ 여행 직전 재확인."},
+ notice:"Opera House 투어 지각 시 입장 불가, 15분 여유 도착 권장. The Rocks Markets는 주말만. 강도 완화 팁: 체력이 부치면 Pylon Lookout과 오후 Rocks Markets 산책 중 하나는 생략해도 좋음.",
+ rain:"야외 도보 비중 크므로 비 예보 시 Day12(Darling Harbour, 실내 비중 高)와 순서 교환 고려.",photo:"images/opera_house.jpg",photoCap:"Sydney Opera House + Harbour Bridge"},
+
+{id:4,date:"2026-12-28",wd:"월",tag:"대체공휴일",region:"Royal Botanic Garden / CBD",theme:"하버 남동쪽 정원 클러스터(Royal Botanic Garden+Mrs Macquarie's Chair) + CBD 도보 구간(QVB). Darling Harbour/Barangaroo는 1/5로 분리.",intensity:"보통",transport:"대중교통",depart:"09:00",
+ schedule:[["09:00","숙소 출발","-","버스546→Parramatta→열차(Martin Place/St James 하차)"],["10:05","Royal Botanic Garden 입장","1.5~2시간","도보"],["11:35","Mrs Macquarie's Chair (하버 뷰)","30분","도보"],["12:15","점심","1시간","도보 15~20분"],["13:30","CBD 도보 이동 (Martin Place, Pitt St Mall)","1시간","도보"],["14:30","Queen Victoria Building(QVB, 선택)","1~1.5시간","도보"],["16:00","Town Hall역으로 귀갓길","-","도보→열차"]],
+ lunch:[{n:"Farm Cove Eatery",note:"Royal Botanic Garden 내 그랩앤고·à la carte 카페, 정원 산책 동선에서 벗어나지 않음",price:"1인 약 $15~25",when:"Mrs Macquarie's Chair 관람 후 정원 내에서 바로",res:"불필요",map:"https://www.google.com/maps/search/?api=1&query=Farm+Cove+Eatery+Royal+Botanic+Garden+Sydney"},
+   {n:"Botanic Gardens Cafe",note:"정원 내 대안 카페, 가벼운 런치 메뉴",price:"1인 약 $15~20",when:"위와 동일(택1)",res:"불필요"}],
+ cafe:[{n:"Cafe Courtyard (MLC Centre)",note:"Martin Place 위 MLC Centre 내 캐주얼 라이선스 카페, 실내외 좌석",price:"1인 약 $12~20",when:"CBD 도보 구간(Martin Place~QVB) 중 휴식",res:"불필요",map:"https://www.google.com/maps/search/?api=1&query=Cafe+Courtyard+MLC+Centre+Sydney"}],
+ dinner:[{n:"Al Aseel Parramatta",note:"레바논 요리, 가족 단위로 편안한 분위기(재방문 무난)",price:"1인 약 $25~35",when:"Parramatta 복귀 후 저녁",res:"주말 저녁 권장",map:"https://www.google.com/maps/search/?api=1&query=Al+Aseel+Restaurant+Parramatta"}],
+ extraMaps:[{label:"Royal Botanic Garden Sydney",url:"https://www.google.com/maps/search/?api=1&query=Royal+Botanic+Garden+Sydney"},{label:"Mrs Macquarie's Chair",url:"https://www.google.com/maps/search/?api=1&query=Mrs+Macquaries+Chair+Sydney"},{label:"Queen Victoria Building",url:"https://www.google.com/maps/search/?api=1&query=Queen+Victoria+Building+Sydney"}],
+ returnTime:"17:30~18:00",reservation:"없음",
+ cost:{rows:[["교통 (버스+열차, 대체공휴일 상한)","$29","$10"],["입장료 (Botanic Garden/QVB 무료)","$0","$0"],["점심 (Farm Cove Eatery)","$60","$20"],["저녁 (Al Aseel)","$90","$30"],["카페 (Cafe Courtyard)","$48","$16"],["기타(잡비)","$10","$3"]],total:["약 $237 (약 ₩225,000)","약 $79 (약 ₩75,000)"],note:"쇼핑 지출은 별도."},
+ notice:"QVB는 공휴일에 일요일식 단축영업(약 11:00~17:00) 가능 — 출발 전 재확인. 피곤하면 QVB 생략 가능(1/8에도 CBD 쇼핑 예정).",
+ rain:"정원 비중 크므로 비 예보 시 QVB/CBD 실내 비중을 늘리고, Botanic Garden은 날씨 좋은 1/7로 이동 고려.",photo:"images/botanic_garden.jpg",photoCap:"Royal Botanic Garden Sydney"},
+
+{id:5,date:"2026-12-29",wd:"화",tag:"날씨영향",region:"Bondi Beach / Bronte",theme:"Bondi Beach에서 여유롭게 쉬고 Bronte까지 짧게 걷는 축소 기본안(전체 코스는 체력에 따른 선택).",intensity:"여유~보통 (기본안) / 다소 바쁨 (Coogee까지 전체 코스 선택 시)",transport:"갈 때는 대중교통, 돌아올 때 피곤하면 Uber로 전환하는 하이브리드 추천",depart:"09:00",
+ schedule:[["09:00","숙소 출발","-","버스546→Parramatta역"],["09:20","Parramatta→Central/Town Hall→Bondi Junction","-","T1→T4 환승 (약 45~55분)"],["10:20","Bondi Junction→Bondi Beach","10~15분","버스 333/380/381/382 중(배차 확인 필요)"],["10:40","Bondi Beach 도착, 해변에서 여유롭게 휴식·수영","2시간","-"],["12:40","점심 (Bondi Beach 인근 카페)","1시간","도보"],["13:45","Bondi→Tamarama→Bronte 짧은 해안 산책(약 2.5km)","1~1.5시간","도보"],["15:15","Bronte→Bondi Junction 복귀","15~20분","버스(노선 확인 필요)"],["15:45","귀갓길 출발","-","열차 환승→Parramatta→버스546"]],
+ lunch:[{n:"North Bondi Fish",note:"해변 바로 앞, 지속가능 인증 해산물, 피시앤칩스 평이 좋고 가족 응대 친절",price:"1인 약 $30~40",when:"Bondi 해변에서 쉰 뒤 12:40경",res:"성수기 주말 권장",map:"https://www.google.com/maps/search/?api=1&query=North+Bondi+Fish"},
+   {n:"Fishmongers Bondi Beach",note:"소박하지만 평이 좋은 피시앤칩스 전문점, 패밀리팩 추천",price:"1인 약 $20~28",when:"위와 동일(택1, 더 캐주얼)",res:"불필요",map:"https://www.google.com/maps/search/?api=1&query=Fishmongers+Bondi+Beach"}],
+ cafe:[{n:"BRU Coffee Bondi",note:"해변 가는 길에 들르기 좋은 캐주얼 커피, 베이컨 에그 슬라이더로도 유명",price:"1인 약 $8~15",when:"09:00 출발 후 Bondi 도착 직후",res:"불필요",map:"https://www.google.com/maps/search/?api=1&query=BRU+Coffee+Bondi"}],
+ dinner:[{n:"Outback Steakhouse Parramatta",note:"넉넉한 스테이크 1인분, 해변 나들이로 지친 날 든든한 한 끼",price:"1인 약 $30~40",when:"Parramatta 복귀 후 저녁",res:"주말 저녁 권장",map:"https://www.google.com/maps/search/?api=1&query=Outback+Steakhouse+Parramatta"}],
+ extraMaps:[{label:"Bondi Beach",url:"https://www.google.com/maps/search/?api=1&query=Bondi+Beach+Sydney"},{label:"Bronte Beach",url:"https://www.google.com/maps/search/?api=1&query=Bronte+Beach+Sydney"}],
+ returnTime:"기본안 17:30~18:00 / 전체 코스 선택 시 18:30~19:00",reservation:"없음",
+ cost:{rows:[["교통 (대중교통, 평일 상한)","$58","$19"],["입장료 (무료, Icebergs 선택 시 +$30)","$0","$0"],["점심 (North Bondi Fish)","$105","$35"],["저녁 (Outback Steakhouse)","$105","$35"],["카페 (BRU Coffee)","$35","$12"],["기타(잡비)","$10","$3"]],total:["약 $313 (약 ₩297,000)","약 $104 (약 ₩99,000)"],note:"귀갓길 Uber 전환 시 교통비 $80~100대로 증가 가능. Icebergs 수영장(선택) 이용 시 3인 +$30."},
+ notice:"여름 자외선 대비 필수(모자·선크림·물). 리립커런트 위험, 반드시 적기 사이에서만 수영. 체력이 남으면 Clovelly 거쳐 Coogee까지 전체 코스(총 6km) 완주 가능(강도 '다소 바쁨'으로 상승, 1/1·1/7처럼 가벼운 날 뒤에 배치 권장).",
+ rain:"Darling Harbour 실내 명소(SEA LIFE/WILD LIFE) 또는 QVB/Pitt St Mall 쇼핑으로 대체, Bondi는 날씨 좋은 날(1/7 등)로 이동.",photo:"images/bondi.jpg",photoCap:"Bondi Beach"},
+
+{id:6,date:"2026-12-30",wd:"수",tag:null,region:"Taronga Zoo",theme:"Taronga Zoo + Sydney Harbour Ferry.",intensity:"보통 (언덕 지형 체력 소모는 있으나 이동 자체는 짧음)",transport:"대중교통(페리)",depart:"09:00",
+ schedule:[["09:00","숙소 출발","-","버스546→Parramatta→열차→Circular Quay"],["10:05","Circular Quay Wharf 4에서 페리 승선","약 12분","F2 페리"],["10:20","Taronga Zoo Wharf 도착, 셔틀버스로 정문 이동","-","셔틀버스(Sky Safari 케이블카는 2027년말까지 미운영)"],["10:35","Taronga Zoo 관람 (셔틀로 언덕 이동 최소화 권장)","4~5시간","도보/셔틀"],["15:05","페리로 Circular Quay 복귀","12분","F2 페리"],["15:30","Circular Quay 여유 시간(선택)","30분~1시간","도보"],["16:30","귀갓길 출발","-","열차→Parramatta→버스546"]],
+ lunch:[{n:"Saltwater Bistro (Taronga Zoo 내)",note:"하버 뷰와 함께 피시앤칩스·버거·파스타 등 무난한 메뉴, 정문 근처 카페보다 평이 좋음",price:"1인 약 $20~30",when:"관람 중간(약 13:00~13:30)",res:"불필요",map:"https://www.google.com/maps/search/?api=1&query=Saltwater+Bistro+Taronga+Zoo"}],
+ cafe:[{n:"Bru Lane by Brudo's Coffee",note:"Circular Quay 인근, 페리 복귀 후 들르기 좋은 로컬 평 좋은 커피",price:"1인 약 $8~12",when:"15:30 Circular Quay 여유 시간",res:"불필요",map:"https://www.google.com/maps/search/?api=1&query=Bru+Lane+by+Brudos+Coffee+Circular+Quay"}],
+ dinner:[{n:"Pho Pasteur",note:"Parramatta 대표 베트남 쌀국수집(재방문하기 좋음)",price:"1인 약 $15~20",when:"Parramatta 복귀 후 저녁",res:"불필요",map:"https://www.google.com/maps/search/?api=1&query=Pho+Pasteur+Parramatta"}],
+ extraMaps:[{label:"Taronga Zoo Sydney",url:"https://www.google.com/maps/search/?api=1&query=Taronga+Zoo+Sydney"},{label:"Circular Quay",url:"https://www.google.com/maps/search/?api=1&query=Circular+Quay+Sydney"}],
+ returnTime:"18:00",reservation:"온라인 사전구매 권장(할인)",
+ resDetail:[{title:"Taronga Zoo 입장권",items:{"예약 필요 여부":"필수는 아니나 온라인 구매 강력 권장(할인+줄서기 생략)","공식 예약 사이트":"taronga.org.au","예약 시기":"상시 가능 — 여행 1~2주 전이면 충분","예상 비용":"온라인 기준 성인 약 A$51, 어린이(4~15세) 약 A$31, 가족패스(성인2+어린이2) 약 A$155 — 페리+동물원+셔틀 결합 'Zoo Express' 패스도 있음","취소/변경":"대부분 구매 24시간 전까지 전액 환불 가능(플랫폼별 상이)","실제 예약 시점(2026-09-10 기준)":"지금 예약 가능, 늦어도 2026년 12월 중순까지 구매 권장"}}],
+ cost:{rows:[["교통 (대중교통+페리)","$58","$19"],["입장료 (Taronga Zoo)","$154","$51"],["점심 (Saltwater Bistro)","$75","$25"],["저녁 (Pho Pasteur)","$53","$18"],["카페 (Bru Lane)","$30","$10"],["기타(잡비)","$10","$3"]],total:["약 $380 (약 ₩361,000)","약 $127 (약 ₩121,000)"]},
+ notice:"편한 신발 필수. 연중무휴('Taronga Never Closes')라 날짜 걱정 없음. 전 구역을 다 보려 하지 말고 셔틀버스로 언덕 이동을 최소화하세요.",
+ rain:"대부분 실외라 우천 시 관람 질 저하 → 비 예보 시 Day12(Darling Harbour 실내)와 교환.",photo:"images/taronga_zoo.jpg",photoCap:"Taronga Zoo"},
+
+{id:7,date:"2026-12-31",wd:"목",tag:"NYE",region:"CBD / Sydney Harbour",theme:"Sydney New Year's Eve 불꽃놀이 — 특별 일정. 상세는 위 NYE 전용 섹션 참고.",intensity:"매우 바쁨 (예외적으로 당연한 날 — 안전·귀가 동선 최우선)",transport:"버스546+열차, 심야는 열차→Parramatta 후 짧은 구간만 택시",depart:"12:30",
+ schedule:[["12:30","숙소 출발, 도시락/간식/물 준비","버스546→Parramatta→열차"],["14:00","Town Hall 또는 Martin Place 하차, 시내 산책 및 이른 저녁","도보"],["19:00","9pm 세션 생략, 자정 세션 입장(21:45)까지 대기 또는 무료구역서 9pm 관람 후 이동","도보"],["21:45","Cahill Expressway 입장","도보"],["24:00","자정 불꽃놀이 관람","-"],["00:15~00:30","관람 종료, Town Hall/Central 방향 도보 이동 시작(혼잡, 30~60분+)","도보"],["01:00~01:30","Town Hall/Central역에서 T1 열차 탑승→Parramatta","열차(심야 증편, Opal 앱 실시간 확인)"],["02:00경","Parramatta 도착 후 숙소까지 마지막 구간","택시/Uber(짧은 구간)"]],
+ scheduleNoDuration:true,
+ lunch:[{n:"도시락 지참 또는 Parramatta에서 미리 식사",note:"숙소 출발(12:30) 전 또는 546번 타기 전 간단히 해결 권장",price:"-",when:"-",res:"불필요"}],
+ cafe:[{n:"Cafe Courtyard (MLC Centre)",note:"Martin Place 인근에서 대기 시간에 커피 한 잔",price:"1인 약 $12~20",when:"14:00~19:00 사이 여유 시간",res:"불필요",map:"https://www.google.com/maps/search/?api=1&query=Cafe+Courtyard+MLC+Centre+Sydney",flag:"NYE 당일 영업시간"}],
+ dinner:[{n:"Mappen (Westfield Sydney) — 이른 저녁(14:00경)",note:"우동/소바 등 빠르고 저렴한 면요리, NYE 혼잡 대비 대기 짧은 곳",price:"1인 약 $15~20",when:"Town Hall 하차 직후~자정 세션 대기 전",res:"불필요(웨이팅 가능)",map:"https://www.google.com/maps/search/?api=1&query=Mappen+Westfield+Sydney",flag:"NYE 당일 영업시간·조기 마감 가능"},
+   {n:"도시락/간식 지참 — 밤(자정 세션 대기 중)",note:"관람 장소 인근 노점·펍은 NYE 당일 매우 혼잡·고가이므로 직접 준비한 도시락·간식·물로 대체",price:"-",when:"-",res:"-",flag:"NYE 당일 음식 반입 규정은 장소별 상이, NYE 섹션 참고"}],
+ extraMaps:[{label:"Cahill Expressway",url:"https://www.google.com/maps/search/?api=1&query=Cahill+Expressway+Sydney"},{label:"Sydney Opera House Forecourt",url:"https://www.google.com/maps/search/?api=1&query=Sydney+Opera+House+Forecourt"},{label:"Town Hall Sydney",url:"https://www.google.com/maps/search/?api=1&query=Town+Hall+Sydney"},{label:"Martin Place Sydney",url:"https://www.google.com/maps/search/?api=1&query=Martin+Place+Sydney"}],
+ returnTime:"02:00~03:00 (심야)",reservation:"필수 — Cahill Expressway 응모(10/2 마감) 또는 Opera House Forecourt 등록(12/26 10am) 중 최소 하나",
+ resDetail:[{title:"① Cahill Expressway 무료 응모",items:{"예약 필요 여부":"응모 필수(당첨제)","공식 사이트":"nyecahillexpressway.com.au","응모 시기":"2026-09-03 09:00~2026-10-02 23:59 — 현재 응모 진행 중","예상 비용":"$0(무료)","취소/변경":"당첨 후 티켓 양도·환불 불가 원칙, 통보 후 2주 내 미수령 시 실효 가능성","실제 응모 시점(2026-09-10 기준)":"지금 즉시 응모(마감 임박)"}},
+   {title:"② Sydney Opera House Forecourt 등록",items:{"예약 필요 여부":"등록 필수(선착순)","공식 사이트":"sydneyoperahouse.com","등록 시기":"2026-12-26(토) 10:00 오픈","예상 비용":"$0(무료)","취소/변경":"선착순 소진형, 등록 시 안내되는 취소 규정 확인 필요","실제 등록 시점(2026-09-10 기준)":"아직 등록 불가(오픈 전까지 대기)"}}],
+ cost:{rows:[["교통 (대중교통 $58 + 심야 택시 $25)","$83","$28"],["입장료 (두 옵션 모두 무료)","$0","$0"],["점심 (도시락)","$30","$10"],["저녁 (이른 저녁 Mappen $53 + 심야 도시락/간식 $30)","$83","$28"],["카페 (Cafe Courtyard)","$48","$16"],["기타(잡비)","$15","$5"]],total:["약 $259 (약 ₩246,000)","약 $86 (약 ₩82,000)"]},
+ notice:"Circular Quay 인근 관람 시 귀갓길 가장 혼잡 — Town Hall/Central 접근이 쉬운 장소 우선. Uber 서지요금 폭등 — CBD에서 바로 Oatlands까지 Uber 시도 금지. 자정 이후 도보·대기 1시간 이상 예상, 아이 체력 관리 필요.",
+ rain:"불꽃놀이는 우천에도 예정대로 진행되는 것이 일반적 — 우비만 준비.",photo:"images/nye_fireworks.jpg",photoCap:"⚠ 2024년 촬영된 대표 이미지 — 2026년 실제 불꽃놀이와 다를 수 있음",nyeLink:true},
+
+{id:8,date:"2027-01-01",wd:"금",tag:"새해 첫날",region:"Parramatta",theme:"휴식 + Parramatta 가볍게.",intensity:"매우 여유",transport:"대중교통(버스546)",depart:"11:00 이후 (늦잠 우선)",
+ schedule:[["늦은 오전","충분히 휴식","-","-"],["12:00","가벼운 브런치","1시간","도보/버스546"],["13:30","Parramatta Park 산책 또는 강변 카페","1.5~2시간","버스546"],["16:00","숙소 복귀","-","버스546"]],
+ lunch:[{n:"Big Tree House Cafe",note:"브리오슈 프렌치토스트, 리코타 팬케이크 등 브런치 대표 메뉴, 동네 친화적 분위기",price:"1인 약 $20~28",when:"12:00 늦은 브런치",res:"주말·공휴일 대기 가능하니 권장",map:"https://www.google.com/maps/search/?api=1&query=Big+Tree+House+Cafe+Parramatta",flag:"New Year's Day 영업 여부"}],
+ cafe:[{n:"Meraki Merchants",note:"Parramatta George St의 아늑한 카페, 고품질 커피",price:"1인 약 $10~15",when:"늦잠 후 가벼운 커피 타임",res:"불필요",map:"https://www.google.com/maps/search/?api=1&query=Meraki+Merchants+Parramatta",flag:"New Year's Day 영업 여부"}],
+ dinner:[{n:"숙소 인근 간단 식사",note:"전날 NYE 피로 누적 예상 — 무리한 외식보다 숙소 인근에서 가볍게",price:"-",when:"-",res:"-",flag:"New Year's Day 인근 식당 영업 여부"}],
+ extraMaps:[{label:"Parramatta Park",url:"https://www.google.com/maps/search/?api=1&query=Parramatta+Park+Sydney"}],
+ returnTime:"16:30",reservation:"없음",
+ cost:{rows:[["교통 (버스546)","$15","$5"],["입장료","$0","$0"],["점심/브런치 (Big Tree House Cafe)","$72","$24"],["저녁 (숙소 인근 간단 식사)","$45","$15"],["카페 (Meraki Merchants)","$38","$13"],["기타(잡비)","$10","$3"]],total:["약 $180 (약 ₩171,000)","약 $60 (약 ₩57,000)"]},
+ notice:"전날 NYE 피로 누적 예상 — 절대 무리한 일정 금지.",
+ rain:"가벼운 일정이라 영향 없음.",photo:null},
+
+{id:9,date:"2027-01-02",wd:"토",tag:"날씨영향·렌터카",region:"Blue Mountains",theme:"Katoomba / Three Sisters / Scenic World.",intensity:"다소 바쁨 (운전 피로 고려, 마지막 Leura는 선택으로 완화)",transport:"렌터카 (하루 중 유일하게 명확히 유리한 날)",depart:"08:00 (렌터카)",
+ schedule:[["08:00","렌터카로 출발","-","자가운전 (M4→Great Western Hwy, 약 80~100분)"],["09:45","Echo Point / Three Sisters (무료)","1시간","도보"],["11:00","Scenic World (Railway/Cableway/Skyway)","3~4시간","도보"],["15:00","점심 (Katoomba 시내)","1시간","자가운전"],["16:00","Leura 마을 산책(선택, 피곤하면 생략)","1시간","자가운전"],["16:30~17:30","귀갓길 출발","-","자가운전"],["18:00~19:00","숙소 도착","-","-"]],
+ lunch:[{n:"Graze on Main",note:"Katoomba 시내, 아침·점심·타파스와 좋은 커피, 친절하고 식단 요청에도 유연",price:"1인 약 $20~28",when:"Scenic World 관람 후 15:00경",res:"불필요(혼잡 시 대기)",map:"https://www.google.com/maps/search/?api=1&query=Graze+on+Main+Katoomba"},
+   {n:"Tempus",note:"Katoomba, 활기찬 분위기의 로컬 카페 겸 레스토랑",price:"1인 약 $20~28",when:"위와 동일(택1)",res:"불필요",map:"https://www.google.com/maps/search/?api=1&query=Tempus+Katoomba"}],
+ cafe:[{n:"Café Leura",note:"Leura 마을, 어워드 수상 커피와 올데이 브런치, 채식·비건 옵션도 있음",price:"1인 약 $10~18",when:"16:00 Leura 마을 산책 중(선택 코스)",res:"불필요",map:"https://www.google.com/maps/search/?api=1&query=Cafe+Leura"}],
+ dinner:[{n:"Parramatta Leagues Club (Jacks Cucina e Bistro)",note:"장거리 운전 후 편하게 먹을 수 있는 이탈리안 비스트로, 가족 좌석 넉넉",price:"1인 약 $30~45",when:"숙소 도착 후 저녁",res:"권장",map:"https://www.google.com/maps/search/?api=1&query=Parramatta+Leagues+Club"}],
+ extraMaps:[{label:"Echo Point Lookout, Katoomba",url:"https://www.google.com/maps/search/?api=1&query=Echo+Point+Lookout+Katoomba"},{label:"Scenic World, Katoomba",url:"https://www.google.com/maps/search/?api=1&query=Scenic+World+Katoomba"},{label:"Leura NSW",url:"https://www.google.com/maps/search/?api=1&query=Leura+NSW"}],
+ returnTime:"18:00~19:00",reservation:"렌터카 사전 예약 필수(성수기 요금 상승). Scenic World 온라인 사전구매 권장.",
+ resDetail:[{title:"렌터카",items:{"예약 필요 여부":"필수(성수기 주말은 당일 예약 시 요금 급등·품절 가능)","공식 예약 사이트":"업체별 상이 — Hertz(hertz.com.au)/Avis(avis.com.au)/Europcar(europcar.com.au)/Budget(budget.com.au) 등 비교 필요","예약 시기":"성수기 요금 상승 전인 지금부터 조기 예약 권장","예상 비용":"하루(1일) 렌트 기준 약 A$115~200(차종·연료·톨게이트 포함 추정)","취소/변경":"업체·요금제별 상이 — 예약 시 취소 규정 확인 필수","실제 예약 시점(2026-09-10 기준)":"지금부터 조기 예약, 늦어도 2026년 10~11월 확정"}},
+   {title:"Scenic World 입장권",items:{"예약 필요 여부":"필수는 아니나 온라인 구매 권장(티켓은 구매일로부터 3개월간 유효)","공식 예약 사이트":"scenicworld.com.au","예약 시기":"방문일(2027-01-02) 기준 2026년 10월 이후 구매 권장(그 이전 구매 시 유효기간 만료 위험)","예상 비용":"Discovery Pass 성인 약 A$55, 어린이(4~13세) 약 A$30 — Unlimited Discovery 패스는 성인 A$64/어린이 A$38.40 등 자료마다 차이 있어 ⚠ 출발 전 재확인","취소/변경":"날짜 미지정 구매 시 3개월 내 자유롭게 사용 가능","실제 예약 시점(2026-09-10 기준)":"지금 사지 말고 2026년 10월 이후로 미루는 것을 권장(유효기간 고려)"}}],
+ cost:{rows:[["교통 (렌터카+연료+주차+톨, 추정)","$158","$53"],["입장료 (Scenic World, Echo Point 무료)","$192","$64"],["점심 (Graze on Main)","$72","$24"],["저녁 (Parramatta Leagues Club)","$113","$38"],["카페 (Café Leura)","$42","$14"],["기타(잡비)","$10","$3"]],total:["약 $587 (약 ₩558,000)","약 $196 (약 ₩186,000)"],note:"렌터카 비용은 업체 견적에 따라 변동 폭이 큼 — ⚠ 여행 직전 재확인."},
+ notice:"여름 성수기 주말이라 Scenic World 주차장 조기 만차 가능 — 오전 일찍 도착 권장. 피곤하면 Leura는 과감히 생략.",
+ rain:"안개·비로 전망이 가려지면 아쉬움이 큰 코스 → 예보가 나쁘면 Day14(자유일)와 순서 교환, QVB/Pitt St Mall 또는 Darling Harbour 실내로 대체.",photo:"images/blue_mountains.jpg",photoCap:"Blue Mountains / Three Sisters"},
+
+{id:10,date:"2027-01-03",wd:"일",tag:"날씨영향",region:"Manly Beach",theme:"Manly Beach.",intensity:"보통",transport:"대중교통(페리)",depart:"09:00",
+ schedule:[["09:00","숙소 출발","-","버스546→Parramatta→열차→Circular Quay"],["10:20","Circular Quay Wharf 3에서 페리 승선","약 30분","F1 페리"],["10:50","Manly 도착, The Corso 및 해변 산책","3~4시간","도보"],["14:00","점심 (Manly The Corso)","1시간","도보"],["15:30","귀갓길 페리","30분","F1 페리"],["16:30","Circular Quay→귀갓길","-","열차→Parramatta→버스546"]],
+ lunch:[{n:"Manly Ocean Foods",note:"1959년부터 이어온 Manly 대표 피시앤칩스, The Corso 해변쪽 끝 위치",price:"1인 약 $18~28",when:"The Corso·해변 산책 중 점심(14:00)",res:"불필요",map:"https://www.google.com/maps/search/?api=1&query=Manly+Ocean+Foods"},
+   {n:"Manly Seafoods - The Fish and Chips House",note:"The Corso 내, 솔트앤페퍼 오징어 등 평이 좋음",price:"1인 약 $18~28",when:"위와 동일(택1)",res:"불필요",map:"https://www.google.com/maps/search/?api=1&query=Manly+Seafoods+The+Fish+and+Chips+House"}],
+ cafe:[{n:"Silo",note:"The Corso, 로컬들이 즐겨찾는 경력 있는 커피",price:"1인 약 $8~12",when:"페리 승선 전후 잠깐",res:"불필요",map:"https://www.google.com/maps/search/?api=1&query=Silo+Coffee+Manly"}],
+ dinner:[{n:"Al Aseel Parramatta",note:"레바논 요리, 가족 단위로 편안한 분위기(재방문)",price:"1인 약 $25~35",when:"Parramatta 복귀 후 저녁",res:"주말 저녁 권장",map:"https://www.google.com/maps/search/?api=1&query=Al+Aseel+Restaurant+Parramatta"}],
+ extraMaps:[{label:"Manly Beach",url:"https://www.google.com/maps/search/?api=1&query=Manly+Beach+Sydney"},{label:"The Corso, Manly",url:"https://www.google.com/maps/search/?api=1&query=The+Corso+Manly"}],
+ returnTime:"18:00",reservation:"없음",
+ cost:{rows:[["교통 (대중교통+페리, 일요일 상한)","$29","$10"],["입장료","$0","$0"],["점심 (Manly Ocean Foods)","$69","$23"],["저녁 (Al Aseel)","$90","$30"],["카페 (Silo)","$30","$10"],["기타(잡비)","$10","$3"]],total:["약 $228 (약 ₩217,000)","약 $76 (약 ₩72,000)"]},
+ notice:"대안으로 Barangaroo 출발 Manly Fast Ferry(약 21분, 더 빠름)도 있음.",
+ rain:"비 오면 Day12(Darling Harbour) 또는 Day14(자유일)와 교환.",photo:"images/manly.jpg",photoCap:"Manly Beach"},
+
+{id:11,date:"2027-01-04",wd:"월",tag:null,region:"Featherdale / Blacktown",theme:"Featherdale Sydney Wildlife Park.",intensity:"여유~보통",transport:"대중교통(기차)+라스트마일 Uber 조합",depart:"09:30",
+ schedule:[["09:30","숙소 출발","-","버스546→Parramatta역"],["09:55","Parramatta→Blacktown (T1, 환승 불필요)","약 15~20분","열차"],["10:20","Blacktown역→Featherdale","약 10분","Uber/택시(버스번호 불확실)"],["10:35","Featherdale Wildlife Park 관람","2.5~3시간","도보"],["13:30","점심 (공원 내 또는 Blacktown 복귀 후)","1시간","도보/Uber"],["15:00","귀갓길 출발","-","Uber→Blacktown역→열차→Parramatta→버스546"]],
+ lunch:[{n:"Treehouse Café (Featherdale 내)",note:"공원 내 유일한 식사 장소, 버거·베이컨에그롤·키즈 콤보 등 가족 메뉴 구성",price:"1인 약 $15~22",when:"관람 중간(13:30경), 이동시간 절약",res:"불필요",map:"https://www.google.com/maps/search/?api=1&query=Featherdale+Sydney+Wildlife+Park"}],
+ cafe:[{n:"Leaf Cafe & Co",note:"Blacktown, 커피·와플·아이스크림으로 평이 좋음",price:"1인 약 $10~15",when:"Blacktown역 환승 전후",res:"불필요",map:"https://www.google.com/maps/search/?api=1&query=Leaf+Cafe+%26+Co+Blacktown"}],
+ dinner:[{n:"Royal Cricketers Arms",note:"Blacktown의 1880년 헤리티지 펍, 버거·미트파이 등 든든한 펍 음식",price:"1인 약 $25~35",when:"숙소 복귀 후 저녁",res:"주말 저녁 권장",map:"https://www.google.com/maps/search/?api=1&query=Royal+Cricketers+Arms+Blacktown"}],
+ extraMaps:[{label:"Featherdale Sydney Wildlife Park",url:"https://www.google.com/maps/search/?api=1&query=Featherdale+Sydney+Wildlife+Park"},{label:"Blacktown Station",url:"https://www.google.com/maps/search/?api=1&query=Blacktown+Station+Sydney"}],
+ returnTime:"16:30~17:00",reservation:"온라인 구매 시 할인(약 10%)",
+ resDetail:[{title:"Featherdale Wildlife Park 입장권",items:{"예약 필요 여부":"필수는 아니나 온라인 구매 권장(현장가 대비 할인)","공식 예약 사이트":"featherdale.com.au","예약 시기":"상시 가능 — 여행 1~2주 전 구매 권장","예상 비용":"성인 약 A$49, 어린이(3~15세) 약 A$29, 가족패키지 약 A$70~129 — 온라인 'ONLINE10' 코드 약 10% 할인 확인(결제 전 재확인)","취소/변경":"온라인 구매 플랫폼별 환불 규정 상이","실제 예약 시점(2026-09-10 기준)":"지금 사도 되고 늦어도 2026년 12월 중순까지"}}],
+ cost:{rows:[["교통 (열차+라스트마일 Uber)","$50","$17"],["입장료 (Featherdale)","$147","$49"],["점심 (Treehouse Café)","$56","$19"],["저녁 (Royal Cricketers Arms)","$90","$30"],["카페 (Leaf Cafe & Co)","$38","$13"],["기타(잡비)","$10","$3"]],total:["약 $391 (약 ₩371,000)","약 $130 (약 ₩124,000)"]},
+ notice:"Blacktown역-Featherdale 연결 버스 번호는 출발 전 featherdale.com.au 'Getting Here' 또는 Trip Planner 재확인.",
+ rain:"관람로 일부 지붕 있어 영향 적으나, 폭우 시 Day14(자유일)와 교환 가능.",photo:"images/featherdale.jpg",photoCap:"Featherdale Sydney Wildlife Park"},
+
+{id:12,date:"2027-01-05",wd:"화",tag:null,region:"Darling Harbour / Barangaroo",theme:"Darling Harbour + Barangaroo + Chinatown (하버 서쪽 클러스터, 12/28과 분리).",intensity:"다소 바쁨(선택 항목 아쿠아리움 생략 시 보통)",transport:"대중교통",depart:"09:30",
+ schedule:[["09:30","숙소 출발","-","버스546→Parramatta→열차→Town Hall"],["10:35","Darling Harbour 도착, 산책","1시간","도보"],["11:35","SEA LIFE 또는 WILD LIFE Sydney(선택)","1.5~2시간","도보"],["13:00","점심 (Darling Harbour 워터프론트)","1시간","도보"],["14:00","Barangaroo Reserve 산책, 하버 뷰","1시간","도보(약 15~20분)"],["15:15","Chinatown 이동, 거리 구경·간식","1시간","도보"],["16:30","저녁 (Chinatown, 이른 저녁)","1시간","도보"],["18:00","귀갓길 출발","-","열차→Parramatta→버스546"]],
+ lunch:[{n:"Noodle Face (Darling Quarter)",note:"중국식 만두·국수·수프, 대부분 메뉴 $20 이하로 가성비 좋음",price:"1인 약 $15~20",when:"Darling Harbour 산책 후 13:00 점심",res:"불필요",map:"https://www.google.com/maps/search/?api=1&query=Noodle+Face+Darling+Quarter"},
+   {n:"Fratelli Fresh Darling Harbour",note:"이탈리안, 가족 친화적 메뉴 구성",price:"1인 약 $25~35",when:"위와 동일(택1)",res:"주말 권장",map:"https://www.google.com/maps/search/?api=1&query=Fratelli+Fresh+Darling+Harbour"}],
+ cafe:[{n:"Blackbird Café (Darling Harbour)",note:"워터프론트 뷰의 올데이 다이닝 카페",price:"1인 약 $12~20",when:"Darling Harbour 도착 직후 휴식",res:"불필요",map:"https://www.google.com/maps/search/?api=1&query=Blackbird+Cafe+Darling+Harbour"}],
+ dinner:[{n:"BBQ King (Chinatown)",note:"Chinatown 대표 중식당, 오리구이·차슈로 유명",price:"1인 약 $20~30",when:"Chinatown 도착 후 16:30 저녁",res:"불필요(대기 가능)",map:"https://www.google.com/maps/search/?api=1&query=BBQ+King+Haymarket+Sydney"}],
+ extraMaps:[{label:"Darling Harbour",url:"https://www.google.com/maps/search/?api=1&query=Darling+Harbour+Sydney"},{label:"Barangaroo Reserve",url:"https://www.google.com/maps/search/?api=1&query=Barangaroo+Reserve+Sydney"},{label:"Chinatown Sydney",url:"https://www.google.com/maps/search/?api=1&query=Chinatown+Sydney+Haymarket"},{label:"SEA LIFE Sydney Aquarium",url:"https://www.google.com/maps/search/?api=1&query=SEA+LIFE+Sydney+Aquarium"},{label:"WILD LIFE Sydney Zoo",url:"https://www.google.com/maps/search/?api=1&query=WILD+LIFE+Sydney+Zoo"}],
+ returnTime:"19:00~19:30",reservation:"없음(아쿠아리움 방문 시 온라인 예매 권장)",
+ resDetail:[{title:"SEA LIFE / WILD LIFE Sydney (선택)",items:{"예약 필요 여부":"필수는 아니나 온라인 구매 권장(할인, 대기 단축)","공식 예약 사이트":"SEA LIFE — visitsealife.com/sydney · WILD LIFE — wildlifesydney.com.au","예약 시기":"상시 가능 — 방문 며칠~1주 전 구매해도 충분","예상 비용":"SEA LIFE 온라인 성인 약 A$39, 어린이(2~15세) 약 A$24부터(성수기 상승). WILD LIFE 단독가는 ⚠ 여행 직전 재확인. 'Sydney Big Ticket' 결합권도 있음","취소/변경":"플랫폼별 환불 규정 상이","실제 예약 시점(2026-09-10 기준)":"방문 며칠 전 구매해도 무방"}}],
+ cost:{rows:[["교통 (대중교통)","$58","$19"],["입장료 (기본 무료)","$0","$0"],["점심 (Noodle Face)","$53","$18"],["저녁 (BBQ King)","$75","$25"],["카페 (Blackbird Café)","$48","$16"],["기타(잡비)","$10","$3"]],total:["약 $244 (약 ₩232,000)","약 $81 (약 ₩77,000)"],note:"SEA LIFE(선택) 3인 약 $117 또는 WILD LIFE(선택) 3인 약 $147 추가 시 하루 합계 약 $361~391."},
+ notice:"이 날은 다른 날씨영향 일정이 우천으로 취소될 경우 대체지로도 적합(실내 비중 높음).",
+ rain:"이미 실내 비중이 높아 자체 대체 불필요.",photo:"images/darling_harbour.jpg",photoCap:"Barangaroo Reserve / Darling Harbour"},
+
+{id:13,date:"2027-01-06",wd:"수",tag:"날씨영향",region:"Watsons Bay",theme:"Watsons Bay.",intensity:"여유",transport:"대중교통(페리)",depart:"09:30",
+ schedule:[["09:30","숙소 출발","-","버스546→Parramatta→열차→Circular Quay"],["10:45","Circular Quay Wharf 2에서 페리 승선","약 23분","F9 페리(Rose Bay 경유)"],["11:10","Watsons Bay 도착, The Gap 전망대 및 해변","2시간","도보"],["13:10","점심 (Doyles on the Beach 등)","1시간","도보"],["14:30","귀갓길 페리","23분","F9 페리"],["15:00","Circular Quay→귀갓길","-","열차→Parramatta→버스546"]],
+ lunch:[{n:"Doyles on the Beach",note:"1885년부터 이어온 Watsons Bay 대표 해산물 레스토랑, 테이크아웃 피시앤칩스 코너 이용 시 예산 절감 가능",price:"1인 약 $30~50(레스토랑) / 약 $15~20(테이크아웃)",when:"The Gap 전망 후 13:10 점심",res:"레스토랑은 권장, 테이크아웃은 불필요",map:"https://www.google.com/maps/search/?api=1&query=Doyles+on+the+Beach+Watsons+Bay"},
+   {n:"Bay Cafe Tucker Bar",note:"워터프론트에서 살짝 벗어난 소박한 로컬 카페, 마늘 새우 피자 등 평 좋고 Doyles보다 저렴",price:"1인 약 $18~25",when:"위와 동일(예산 아끼고 싶을 때 대안)",res:"불필요",map:"https://www.google.com/maps/search/?api=1&query=Bay+Cafe+Tucker+Bar+Watsons+Bay"}],
+ cafe:[{n:"Bay Cafe Tucker Bar",note:"점심 대안이자 커피·홈메이드 바나나빵으로도 평이 좋음, 겸용 가능",price:"1인 약 $8~12",when:"페리 대기 시간",res:"불필요",map:"https://www.google.com/maps/search/?api=1&query=Bay+Cafe+Tucker+Bar+Watsons+Bay"}],
+ dinner:[{n:"Parramatta Leagues Club (Jacks Cucina e Bistro)",note:"가족 좌석 넉넉한 이탈리안 비스트로(재방문 무난)",price:"1인 약 $30~45",when:"Parramatta 복귀 후 저녁",res:"권장",map:"https://www.google.com/maps/search/?api=1&query=Parramatta+Leagues+Club"}],
+ extraMaps:[{label:"Watsons Bay",url:"https://www.google.com/maps/search/?api=1&query=Watsons+Bay+Sydney"},{label:"The Gap Lookout, Watsons Bay",url:"https://www.google.com/maps/search/?api=1&query=The+Gap+Lookout+Watsons+Bay"}],
+ returnTime:"16:30~17:00",reservation:"Doyles 등 인기 레스토랑은 사전예약 권장",
+ resDetail:[{title:"Doyles on the Beach",items:{"예약 필요 여부":"강력 권장(풀 테이블 서비스, 성수기 매우 혼잡)","공식 예약 사이트":"doyles.com.au (또는 OpenTable·Tripadvisor 경유, 전화 (02) 9337 2007)","예약 시기":"여름 성수기(12~1월)라 최소 몇 주 전 예약 권장","예상 비용":"레스토랑 코스 1인 약 A$30~50, 테이크아웃 1인 약 A$15~20","취소/변경":"노쇼·직전 취소 정책 있을 수 있어 예약 확인 메일 재확인","실제 예약 시점(2026-09-10 기준)":"늦어도 2026년 12월 중순까지 예약 완료 권장. 영업시간 월~금 11:45~15:00 / 토·일 11:45~16:00 확인됨(수요일 13:10 방문 문제없음)"}}],
+ cost:{rows:[["교통 (대중교통+페리)","$58","$19"],["입장료","$0","$0"],["점심 (Doyles on the Beach, 레스토랑)","$120","$40"],["저녁 (Parramatta Leagues Club)","$113","$38"],["카페 (Bay Cafe Tucker Bar)","$30","$10"],["기타(잡비)","$10","$3"]],total:["약 $331 (약 ₩314,000)","약 $110 (약 ₩105,000)"],note:"Doyles 대신 테이크아웃 코너 이용 시 점심 3인 약 $53로 절감(하루 합계 약 $264)."},
+ notice:"The Gap은 절벽 지형, 아이와 함께라면 안전거리 유지.",
+ rain:"비 예보 시 Day12(Darling Harbour)와 교환.",photo:"images/watsons_bay.jpg",photoCap:"Watsons Bay / The Gap"},
+
+{id:14,date:"2027-01-07",wd:"목",tag:"자유일",region:"자유일 / 날씨 보충일",theme:"유동적인 날. ①날씨로 밀린 일정 보충, ②없으면 쇼핑 또는 신규 제안 명소 중 택1, ③단순 휴식. (기본안: DFO Homebush 쇼핑)",intensity:"여유",transport:"상황에 따라(대중교통 기본)",depart:"10:00",
+ schedule:[["10:00","숙소 출발","-","버스546→Parramatta역"],["10:20","Parramatta→Homebush 방향 (DFO Homebush)","약 24~32분","열차+버스 환승"],["11:00","DFO Homebush 쇼핑","3시간","도보"],["14:00","점심","1시간","도보"],["15:30","귀갓길 출발","-","버스→열차→Parramatta→버스546"]],
+ lunch:[{n:"Abattoir Blues",note:"1900년대 옛 도축장 건물을 개조한 펍 스타일 레스토랑, 든든한 버거·브런치",price:"1인 약 $20~30",when:"DFO 쇼핑 후 14:00 점심",res:"불필요(주말 대기 가능)",map:"https://www.google.com/maps/search/?api=1&query=Abattoir+Blues+Sydney+Olympic+Park"},
+   {n:"DFO Homebush 푸드코트",note:"쇼핑 중 빠르고 저렴한 대안",price:"1인 약 $12~18",when:"위와 동일(택1)",res:"불필요",map:"https://www.google.com/maps/search/?api=1&query=DFO+Homebush"}],
+ cafe:[{n:"Armory Wharf Cafe",note:"Parramatta River변의 올데이 브런치 카페, 후에보스 란체로스 등 평이 좋음",price:"1인 약 $15~22",when:"DFO 이동 전후",res:"불필요",map:"https://www.google.com/maps/search/?api=1&query=Armory+Wharf+Cafe+Sydney+Olympic+Park"}],
+ dinner:[{n:"Pho Pasteur",note:"Parramatta 대표 베트남 쌀국수집(재방문)",price:"1인 약 $15~20",when:"숙소 복귀 후 저녁",res:"불필요",map:"https://www.google.com/maps/search/?api=1&query=Pho+Pasteur+Parramatta"}],
+ extraMaps:[{label:"DFO Homebush",url:"https://www.google.com/maps/search/?api=1&query=DFO+Homebush"},{label:"Sydney Olympic Park",url:"https://www.google.com/maps/search/?api=1&query=Sydney+Olympic+Park"}],
+ returnTime:"16:30",reservation:"없음",
+ cost:{rows:[["교통 (열차+버스)","$40","$13"],["입장료","$0","$0"],["점심 (Abattoir Blues)","$75","$25"],["저녁 (Pho Pasteur)","$53","$18"],["카페 (Armory Wharf Cafe)","$56","$19"],["기타(잡비)","$10","$3"]],total:["약 $234 (약 ₩222,000)","약 $78 (약 ₩74,000)"],note:"쇼핑 지출은 별도."},
+ notice:"이 날은 여행 전체의 '안전판'입니다 — 12/29(Bondi), 1/2(Blue Mountains), 1/3(Manly), 1/6(Watsons Bay) 중 날씨로 변경된 일정이 있으면 최우선 배치. 신규 선택 후보: Sydney Fish Market, Cockatoo Island, Chinese Garden of Friendship(모두 의무 아닌 선택).",
+ rain:"원래 실내 위주라 영향 적음.",photo:null},
+
+{id:15,date:"2027-01-08",wd:"금",tag:null,region:"CBD",theme:"마지막 날 하버 조망 + 막바지 쇼핑. (Barangaroo·Mrs Macquarie's Point 중복 제거, Sydney Tower Eye로 재구성)",intensity:"보통",transport:"대중교통",depart:"10:00",
+ schedule:[["10:00","숙소 출발","-","버스546→Parramatta→열차→Town Hall"],["11:00","Pitt St Mall / Strand Arcade 막바지 기념품 쇼핑","2시간","도보"],["13:00","점심","1시간","도보"],["14:30","자유시간 / 숙소 복귀 후 짐 정리 시작(선택)","-","-"],["17:30","Sydney Tower Eye 전망대에서 노을·야경 감상","1~1.5시간","도보"],["19:00","저녁 (Pitt St Mall 인근)","1.5시간","도보"],["20:30","귀갓길 출발","-","열차→Parramatta→버스546"]],
+ lunch:[{n:"Diethnes Greek Restaurant",note:"CBD, 캐주얼하고 가족 단위로 무난, 그룹 식사에 좋은 평",price:"1인 약 $25~35",when:"Pitt St Mall 쇼핑 중 13:00 점심",res:"불필요",map:"https://www.google.com/maps/search/?api=1&query=Diethnes+Greek+Restaurant+Sydney"}],
+ cafe:[{n:"Cafe Courtyard (MLC Centre)",note:"Pitt St Mall 도보권, 쇼핑 중 휴식하기 좋은 캐주얼 카페(재방문)",price:"1인 약 $12~20",when:"자유시간(14:30경)",res:"불필요",map:"https://www.google.com/maps/search/?api=1&query=Cafe+Courtyard+MLC+Centre+Sydney"}],
+ dinner:[{n:"Devine",note:"Market St·Clarence St 코너, QVB·Town Hall 인근 이탈리안 스타일 캐주얼 다이닝(파인다이닝 아닌 중가), 마지막 밤 기념 식사로 무난",price:"1인 약 $35~50",when:"Sydney Tower Eye 관람 후 19:00 저녁",res:"권장(마지막 밤 기념)",map:"https://www.google.com/maps/search/?api=1&query=Devine+Restaurant+Sydney"}],
+ extraMaps:[{label:"Pitt Street Mall, Sydney",url:"https://www.google.com/maps/search/?api=1&query=Pitt+Street+Mall+Sydney"},{label:"Sydney Tower Eye",url:"https://www.google.com/maps/search/?api=1&query=Sydney+Tower+Eye"}],
+ returnTime:"21:30~22:00",reservation:"저녁 레스토랑 사전예약 권장. Sydney Tower Eye는 온라인 사전구매 시 대기시간 단축 가능",
+ resDetail:[{title:"Sydney Tower Eye",items:{"예약 필요 여부":"필수는 아니나 온라인 사전구매 권장(대기 단축, 할인 가능성)","공식 예약 사이트":"sydneytowereye.com.au","예약 시기":"상시 가능 — 최소 방문 1일 전 구매 권장. ⚠ 1/8은 여름방학 성수기라 평일·비수기 한정 할인(최대 25%)은 적용되지 않을 가능성 큼","예상 비용":"성인 약 A$23~29, 어린이(2~15세) 약 A$17~22 — 출처마다 차이 있어 ⚠ 여행 직전 재확인","취소/변경":"방문 24시간 전까지 취소 시 전액 환불 가능(예매처별 재확인)","실제 예약 시점(2026-09-10 기준)":"지금 예약할 필요 없음, 여행 1~2주 전~방문 하루 전까지"}}],
+ cost:{rows:[["교통 (버스+열차, 금요일 상한)","$29","$10"],["입장료 (Sydney Tower Eye, 추정)","$105","$35"],["점심 (Diethnes Greek)","$90","$30"],["저녁 (Devine)","$128","$43"],["카페 (Cafe Courtyard)","$48","$16"],["기타(잡비)","$10","$3"]],total:["약 $410 (약 ₩390,000)","약 $137 (약 ₩130,000)"],note:"Sydney Tower Eye 입장료는 출처 간 편차 있어 ⚠ 여행 직전 재확인 — 성인 1인 $23~40대로 조사됨."},
+ notice:"다음날 오후 늦게 출국이라 여유는 있지만 짐 정리를 위해 너무 늦게 귀가하지 않도록 조정.",
+ rain:"비 오면 전망대 조망 효과 떨어지므로 쇼핑 비중을 늘리고 전망대는 생략, 또는 Darling Harbour 실내 쪽으로 대체.",photo:null},
+
+{id:16,date:"2027-01-09",wd:"토",tag:"귀국",region:"공항",theme:"귀국 준비 + 공항 이동.",intensity:"여유",transport:"Uber/택시 (짐이 많아 대중교통보다 편리)",depart:"-",
+ schedule:[["오전","짐 정리, 체크아웃 준비","-","-"],["10:30","Parramatta 근처 가벼운 브런치/마지막 산책(선택)","1~1.5시간","버스546"],["13:00","숙소 복귀, 최종 짐 점검","-","버스546"],["17:00~17:30","공항으로 출발 (21:55 출발, 국제선 3시간 전 도착 권장)","-","Uber/택시(편도 약 40~50분 추정)"],["18:30~19:00","시드니 공항(SYD) 도착, 체크인","-","-"],["21:55","시드니 출발→인천","-","-"]],
+ lunch:[{n:"Lil Miss Collins",note:"Parramatta역 도보 5분, 러스틱한 분위기의 인기 브런치 카페(재료 품질 좋다는 평)",price:"1인 약 $20~28",when:"10:30 마지막 산책 겸 브런치",res:"불필요(주말 대기 가능)",map:"https://www.google.com/maps/search/?api=1&query=Lil+Miss+Collins+Parramatta"}],
+ cafe:[{n:"Circa Espresso",note:"Parramatta, 출국 전 마지막으로 가볍게 들르기 좋은 라네웨이 카페(재방문)",price:"1인 약 $10~15",when:"공항 출발 전 테이크아웃 커피",res:"불필요",map:"https://www.google.com/maps/search/?api=1&query=Circa+Espresso+Parramatta"}],
+ dinner:[{n:"공항 내 식당가",note:"터미널별 상이, 당일 확인 — 특정 상호 조사는 범위 밖",price:"추정 1인 약 $20",when:"체크인 이후",res:"-"}],
+ extraMaps:[{label:"Sydney Airport (SYD)",url:"https://www.google.com/maps/search/?api=1&query=Sydney+Airport+SYD"}],
+ returnTime:"해당 없음(당일 출국)",reservation:"공항행 차량 여유 있게 호출, 대형 수하물 감안해 UberXL 고려",
+ cost:{rows:[["교통 (Uber/택시, 공항까지)","$125","$42"],["입장료","$0","$0"],["점심/브런치 (Lil Miss Collins)","$72","$24"],["저녁 (공항 내 식당가, 추정)","$60","$20"],["카페 (Circa Espresso)","$38","$13"],["기타(잡비)","$10","$3"]],total:["약 $305 (약 ₩290,000)","약 $102 (약 ₩97,000)"],note:"대중교통(T1+T8) 이용 시 더 저렴하나(1인 약 $16.60 접근료+상한 운임) 짐 많으면 Uber/택시 권장."},
+ notice:"연말연시 공항 혼잡 가능성 감안해 여유 있게 출발.",
+ rain:"해당 없음.",photo:null}
+];
+
+const RESERVATIONS = [
+ {id:"cahill",name:"NYE — Cahill Expressway 무료 응모",day:7,importance:"must",timing:"지금 즉시 (응모 마감 2026-10-02 23:59)",site:"nyecahillexpressway.com.au",status:"예약 가능"},
+ {id:"forecourt",name:"NYE — Sydney Opera House Forecourt 등록",day:7,importance:"must",timing:"2026-12-26(토) 10:00 오픈 즉시",site:"sydneyoperahouse.com",status:"아직 예약 불가"},
+ {id:"operatour",name:"Sydney Opera House 가이드 투어 (선택)",day:3,importance:"reco",timing:"여행 1~2개월 전, 늦어도 전날 17:00까지",site:"sydneyoperahouse.com",status:"예약 가능"},
+ {id:"taronga",name:"Taronga Zoo 입장권",day:6,importance:"strong",timing:"여행 1~2주 전(온라인 구매가 저렴)",site:"taronga.org.au",status:"예약 가능"},
+ {id:"rentcar",name:"렌터카 — Blue Mountains용",day:9,importance:"must",timing:"지금부터 조기 예약(성수기 요금 상승)",site:"업체별 상이(Hertz/Avis/Europcar/Budget 등)",status:"예약 가능"},
+ {id:"scenicworld",name:"Scenic World 입장권",day:9,importance:"reco",timing:"티켓 유효기간 3개월 — 2026년 10월 이후 구매 권장",site:"scenicworld.com.au",status:"예약 가능"},
+ {id:"featherdale",name:"Featherdale Wildlife Park 입장권",day:11,importance:"reco",timing:"여행 1~2주 전(온라인 약 10% 할인)",site:"featherdale.com.au",status:"예약 가능"},
+ {id:"sealife",name:"SEA LIFE / WILD LIFE Sydney (선택)",day:12,importance:"opt",timing:"방문 며칠~1주 전",site:"visitsealife.com/sydney, wildlifesydney.com.au",status:"예약 가능"},
+ {id:"doyles",name:"Doyles on the Beach 레스토랑",day:13,importance:"reco",timing:"여행 2~3주 전",site:"doyles.com.au",status:"예약 가능"},
+ {id:"towereye",name:"Sydney Tower Eye 입장권",day:15,importance:"reco",timing:"여행 1~2주 전, 늦어도 방문 하루 전",site:"sydneytowereye.com.au",status:"예약 가능"}
+];
+
+const PACKING = [
+ "여권 & 항공권/예약 확인서 사본","여행자보험 증서",
+ "Opal 카드 또는 컨택리스 신용/체크카드","휴대폰 & 충전기",
+ "자외선 차단제, 모자, 선글라스","편한 워킹화 (해안 산책로·블루마운틴·동물원 도보 비중 높음)",
+ "우비/작은 우산 (NYE 등 우천 대비, 큰 우산은 NYE 반입 제한)","수영복, 수건 (Bondi/Manly/Watsons Bay)",
+ "보조배터리, 멀티어댑터 (Type I 플러그)","상비약, 벌레기피제",
+ "NYE 당일용 도시락/간식/물 (장시간 대기 대비)","국제운전면허증 (렌터카 운전 시, 1/2 Blue Mountains)"
+];
+
+const COST_DAILY = [
+["12/25(금)","$10","$0","$62","$5","$25 (₩24,000)","$75 (₩71,000)"],
+["12/26(토)","$18","$0","$181","$10","$70 (₩67,000)","$209 (₩199,000)"],
+["12/27(일)","$29","$0","$188","$10","$76 (₩72,000)","$227 (₩216,000)"],
+["12/28(월)","$29","$0","$198","$10","$79 (₩75,000)","$237 (₩225,000)"],
+["12/29(화)","$58","$0","$245","$10","$104 (₩99,000)","$313 (₩297,000)"],
+["12/30(수)","$58","$154","$158","$10","$127 (₩121,000)","$380 (₩361,000)"],
+["12/31(목)","$83","$0","$161","$15","$86 (₩82,000)","$259 (₩246,000)"],
+["01/01(금)","$15","$0","$155","$10","$60 (₩57,000)","$180 (₩171,000)"],
+["01/02(토)","$158","$192","$227","$10","$196 (₩186,000)","$587 (₩558,000)"],
+["01/03(일)","$29","$0","$189","$10","$76 (₩72,000)","$228 (₩217,000)"],
+["01/04(월)","$50","$147","$184","$10","$130 (₩124,000)","$391 (₩371,000)"],
+["01/05(화)","$58","$0","$176","$10","$81 (₩77,000)","$244 (₩232,000)"],
+["01/06(수)","$58","$0","$263","$10","$110 (₩105,000)","$331 (₩314,000)"],
+["01/07(목)","$40","$0","$184","$10","$78 (₩74,000)","$234 (₩222,000)"],
+["01/08(금)","$29","$105","$266","$10","$137 (₩130,000)","$410 (₩390,000)"],
+["01/09(토)","$125","$0","$170","$10","$102 (₩97,000)","$305 (₩290,000)"]
+];
+const COST_TOTAL = ["합계","$847","$598","$3,007","$160","약 $1,537 (약 ₩1,460,000)","약 $4,610 (약 ₩4,380,000)"];
+
+/* ============ RENDER ============ */
+function esc(s){return s==null?"":String(s)}
+function mapBtn(url,label){ if(!url) return ""; return `<a class="mapbtn" target="_blank" rel="noopener noreferrer" href="${url}">📍 지도 ${label?("· "+esc(label)):""}</a>`; }
+
+function foodBox(item){
+  let html = `<div class="foodbox"><div class="fname">${esc(item.n)}${item.flag?`<span class="flag">⚠ 재확인 필요</span>`:""}</div>`;
+  if(item.note) html += `<div class="frow">${esc(item.note)}</div>`;
+  let meta = [];
+  if(item.price && item.price!=="-") meta.push("💰 "+item.price);
+  if(item.when && item.when!=="-") meta.push("🕒 "+item.when);
+  if(item.res && item.res!=="-") meta.push("예약: "+item.res);
+  if(meta.length) html += `<div class="frow">${meta.join(" · ")}</div>`;
+  if(item.flag) html += `<div class="frow" style="color:var(--warn-ink)">${esc(item.flagNote||item.flag)}</div>`;
+  if(item.map) html += mapBtn(item.map);
+  html += `</div>`;
+  return html;
+}
+
+function costTableHtml(cost){
+  let rows = cost.rows.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join("");
+  return `<table class="costtable"><tr><th>항목</th><th>3인</th><th>1인</th></tr>${rows}
+  <tr class="totalrow"><td>하루 합계</td><td>${cost.total[0]}</td><td>${cost.total[1]}</td></tr></table>
+  ${cost.note?`<div class="notebox">${esc(cost.note)}</div>`:""}`;
+}
+
+function renderDay(d){
+  const schedRows = d.schedule.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td></tr>`).join("");
+  const allMapLinks = [...(d.extraMaps||[])];
+  let thumbHtml = "";
+  let photoCapHtml = "";
+  if(d.photo){
+    thumbHtml = `<img class="thumb" src="${d.photo}" alt="${esc(d.photoCap||d.region)}">`;
+    if(d.photoCap) photoCapHtml = `<div class="photocap">${d.nyeLink?"":"📷 "}${esc(d.photoCap)}</div>`;
+  }
+  let resDetailHtml = "";
+  if(d.resDetail){
+    resDetailHtml = d.resDetail.map(rd=>{
+      const rows = Object.entries(rd.items).map(([k,v])=>`<tr><td style="font-weight:600;white-space:nowrap">${esc(k)}</td><td>${esc(v)}</td></tr>`).join("");
+      return `<details class="toggle"><summary>${esc(rd.title)} — 예약 세부정보</summary><div class="body"><table class="plain">${rows}</table></div></details>`;
+    }).join("");
+  }
+  let nyeBtn = d.nyeLink ? `<p><a class="btn secondary" href="#nye">🎆 NYE 상세 정보(Forecourt/Cahill/교통통제) 전체 보기</a></p>` : "";
+  const resShort = (d.reservation && d.reservation.startsWith("없음")) ? "없음" : "필요/권장";
+
+  return `
+  <div class="daycard" id="day-${d.id}">
+    <div class="daysummary" role="button" tabindex="0" aria-expanded="false" onclick="toggleDay(${d.id})" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleDay(${d.id})}">
+      <div class="dhead">
+        <span class="dnum">${d.id}일차</span>
+        <span class="ddate">${d.date} (${d.wd})</span>
+        ${d.tag?`<span class="dtag">${esc(d.tag)}</span>`:""}
+      </div>
+      ${thumbHtml}
+      ${photoCapHtml}
+      <div class="sumline"><b>${esc(d.region)}</b> — ${esc(d.theme)}</div>
+      <div class="pillrow" style="margin-top:8px">
+        <span class="pill">강도: ${esc(d.intensity.split(" ")[0])}</span>
+        <span class="pill">${esc(d.transport.split(",")[0].split("(")[0].trim())}</span>
+        <span class="pill">예약: ${resShort}</span>
+      </div>
+      <div class="toggletext">상세 일정 보기 <span class="chev">▾</span></div>
+    </div>
+    <div class="daybody">
+      ${nyeBtn}
+      <div class="field"><div class="flabel"><span class="fnum">④</span>숙소 출발 추천시간</div><p>${esc(d.depart)}</p></div>
+      <div class="field"><div class="flabel"><span class="fnum">⑤⑥⑦</span>시간대별 일정 (체류시간·이동방법 포함)</div>
+        <div class="scrollx"><table class="sched"><tr><th>시간</th><th>활동</th><th>${d.scheduleNoDuration?"이동방법":"체류"}</th>${d.scheduleNoDuration?"":"<th>이동방법</th>"}</tr>${schedRows}</table></div>
+      </div>
+      <div class="field"><div class="flabel"><span class="fnum">⑧</span>점심 추천</div>${d.lunch.map(foodBox).join("")}</div>
+      <div class="field"><div class="flabel"><span class="fnum">⑨</span>카페 추천</div>${d.cafe.map(foodBox).join("")}</div>
+      <div class="field"><div class="flabel"><span class="fnum">⑩</span>저녁 추천</div>${d.dinner.map(foodBox).join("")}</div>
+      ${allMapLinks.length?`<div class="field"><div class="flabel">📍 주요 장소 지도 링크</div><div class="pillrow">${allMapLinks.map(m=>mapBtn(m.url,m.label)).join("")}</div></div>`:""}
+      <div class="field"><div class="flabel"><span class="fnum">⑪</span>예상 귀가시간</div><p>${esc(d.returnTime)}</p></div>
+      <div class="field"><div class="flabel"><span class="fnum">⑫</span>예약 필요 여부</div><p>${esc(d.reservation)}</p>${resDetailHtml}</div>
+      <div class="field"><div class="flabel"><span class="fnum">⑬</span>하루 예상비용 (AUD, 3인 가족 기준)</div>${costTableHtml(d.cost)}</div>
+      ${d.notice?`<div class="field"><div class="flabel"><span class="fnum">⑭</span>주의사항</div><p>${esc(d.notice)}</p></div>`:""}
+      ${d.rain?`<div class="field"><div class="flabel"><span class="fnum">⑮</span>비 오는 날 대체 일정</div><p>${esc(d.rain)}</p></div>`:""}
+    </div>
+  </div>`;
+}
+
+document.getElementById("dayCards").innerHTML = DAYS.map(renderDay).join("");
+
+document.getElementById("overviewGrid").innerHTML = DAYS.map(d=>`
+  <div class="ovcard" onclick="openDay(${d.id});document.getElementById('day-${d.id}').scrollIntoView({behavior:'smooth'})">
+    <div><span class="date">${d.date}</span><span class="tag">${d.id}일차 · ${d.wd}</span></div>
+    <div class="region">${esc(d.region)}</div>
+    <div class="theme">${esc(d.theme.split("(")[0].split(".")[0])}</div>
+    <div class="foot">
+      <span>강도: ${esc(d.intensity.split(" ")[0])}</span>
+      <span>${esc(d.transport.split(",")[0].split("(")[0].trim())}</span>
+      <span>예약: ${d.reservation && d.reservation.startsWith("없음")?"없음":"필요/권장"}</span>
+    </div>
+  </div>`).join("");
+
+document.getElementById("foodList").innerHTML = DAYS.map(d=>{
+  const items = [...d.lunch.map(x=>({...x,type:"점심"})), ...d.cafe.map(x=>({...x,type:"카페"})), ...d.dinner.map(x=>({...x,type:"저녁"}))];
+  return `<details class="toggle"><summary>${d.id}일차 · ${d.date} (${d.region})</summary><div class="body">
+    ${items.map(it=>`<div class="foodbox"><span class="pill" style="margin-right:6px">${it.type}</span><b>${esc(it.n)}</b>
+      ${it.price&&it.price!=="-"?` · ${it.price}`:""} ${it.map?mapBtn(it.map):""}</div>`).join("")}
+  </div></details>`;
+}).join("");
+
+const impBadge = {must:'<span class="badge must">필수</span>',strong:'<span class="badge strong">강력 권장</span>',reco:'<span class="badge reco">권장</span>',opt:'<span class="badge opt">선택</span>'};
+function renderReservations(){
+  const saved = JSON.parse(localStorage.getItem("sydneyReservationChecks")||"{}");
+  document.getElementById("reservationList").innerHTML = RESERVATIONS.map(r=>{
+    const checked = saved[r.id]?"checked":"";
+    const siteUrl = r.site.startsWith("http")?r.site:("https://"+r.site.split(",")[0].split(" ")[0].trim());
+    return `<div class="checkitem ${saved[r.id]?'checked':''}" id="ck-${r.id}">
+      <input type="checkbox" ${checked} onchange="toggleReservation('${r.id}')">
+      <div style="flex:1">
+        <div class="ctitle">☐ ${esc(r.name)} ${impBadge[r.importance]}</div>
+        <div class="cmeta">${r.day}일차 · 추천 예약 시기: ${esc(r.timing)}</div>
+        <div class="cmeta">공식 사이트: ${esc(r.site)}</div>
+        <div class="statuswrap"><span class="badge status" style="background:var(--chip)">${esc(r.status)}</span>
+        <a class="resbtn" style="margin-left:6px" target="_blank" rel="noopener noreferrer" href="${siteUrl}">🎫 예약 사이트</a></div>
+      </div></div>`;
+  }).join("");
+  const doneCount = RESERVATIONS.filter(r=>saved[r.id]).length;
+  const sumEl = document.getElementById("resSummary");
+  if(sumEl) sumEl.textContent = `예약 필요 항목 ${RESERVATIONS.length}개 · 완료 ${doneCount}개`;
+}
+function toggleReservation(id){
+  const saved = JSON.parse(localStorage.getItem("sydneyReservationChecks")||"{}");
+  saved[id] = !saved[id];
+  localStorage.setItem("sydneyReservationChecks", JSON.stringify(saved));
+  renderReservations();
+}
+renderReservations();
+
+function renderPacking(){
+  const saved = JSON.parse(localStorage.getItem("sydneyPackingChecks")||"{}");
+  document.getElementById("packingList").innerHTML = PACKING.map((p,i)=>{
+    const checked = saved[i]?"checked":"";
+    return `<div class="checkitem ${saved[i]?'checked':''}">
+      <input type="checkbox" ${checked} onchange="togglePacking(${i})">
+      <div class="ctitle">${esc(p)}</div>
+    </div>`;
+  }).join("");
+  const doneCount = PACKING.filter((p,i)=>saved[i]).length;
+  const sumEl = document.getElementById("packSummary");
+  if(sumEl) sumEl.textContent = `준비물 ${doneCount}/${PACKING.length} 완료`;
+}
+function togglePacking(i){
+  const saved = JSON.parse(localStorage.getItem("sydneyPackingChecks")||"{}");
+  saved[i] = !saved[i];
+  localStorage.setItem("sydneyPackingChecks", JSON.stringify(saved));
+  renderPacking();
+}
+renderPacking();
+
+document.getElementById("costTable").innerHTML =
+  `<tr><th>날짜</th><th>교통</th><th>입장료</th><th>식비(점심+저녁+카페)</th><th>기타</th><th>1인 합계</th><th>3인 합계</th></tr>` +
+  COST_DAILY.map(r=>`<tr>${r.map(c=>`<td>${c}</td>`).join("")}</tr>`).join("") +
+  `<tr style="font-weight:700;background:var(--chip)">${COST_TOTAL.map(c=>`<td>${c}</td>`).join("")}</tr>`;
+
+/* ---------- accordion controls ---------- */
+function toggleDay(id, force){
+  const card = document.getElementById("day-"+id);
+  if(!card) return;
+  const willOpen = (force===true) ? true : (force===false) ? false : !card.classList.contains("open");
+  card.classList.toggle("open", willOpen);
+  const head = card.querySelector(".daysummary");
+  if(head) head.setAttribute("aria-expanded", willOpen);
+  const label = card.querySelector(".toggletext");
+  if(label) label.innerHTML = (willOpen ? "접기 " : "상세 일정 보기 ") + '<span class="chev">▾</span>';
+}
+function openDay(id){ toggleDay(id, true); }
+
+/* ---------- big section accordion controls ---------- */
+function toggleSection(id, force){
+  const sec = document.getElementById(id);
+  if(!sec) return;
+  const willOpen = (force===true) ? true : (force===false) ? false : !sec.classList.contains("open");
+  sec.classList.toggle("open", willOpen);
+  const head = sec.querySelector(".bigacc-head");
+  if(head) head.setAttribute("aria-expanded", willOpen);
+}
+function openSection(id){ toggleSection(id, true); }
+const BIGACC_IDS = ["nye","reservations","transport","weather","food","cost","packing","credits"];
+function expandAllDays(){ document.querySelectorAll(".daycard").forEach(c=>toggleDay(c.id.replace("day-",""), true)); }
+function collapseAllDays(){ document.querySelectorAll(".daycard").forEach(c=>toggleDay(c.id.replace("day-",""), false)); }
+function flashDay(id){
+  const card = document.getElementById("day-"+id);
+  if(!card) return;
+  card.classList.remove("flash");
+  void card.offsetWidth; /* restart animation */
+  card.classList.add("flash");
+  card.addEventListener("animationend", function handler(){ card.classList.remove("flash"); card.removeEventListener("animationend", handler); });
+}
+
+/* ---------- today feature ---------- */
+function goToday(){
+  const now = new Date();
+  const start = new Date("2026-12-25T00:00:00");
+  const end = new Date("2027-01-09T23:59:59");
+  const box = document.getElementById("todayResult");
+  if(now < start || now > end){
+    box.textContent = "현재는 여행 기간이 아닙니다.";
+    return;
+  }
+  const diffDays = Math.floor((now - start) / 86400000) + 1;
+  const target = document.getElementById("day-"+diffDays);
+  if(target){
+    openDay(diffDays);
+    target.scrollIntoView({behavior:"smooth", block:"center"});
+    flashDay(diffDays);
+    box.textContent = `오늘은 ${diffDays}일차입니다. 이동했습니다.`;
+  } else {
+    box.textContent = "해당 날짜 카드를 찾을 수 없습니다.";
+  }
+}
+
+/* ---------- hamburger ---------- */
+document.getElementById("hbBtn").addEventListener("click", function(){
+  document.getElementById("navlinks").classList.toggle("open");
+});
+document.querySelectorAll(".navlinks a").forEach(a=>a.addEventListener("click", ()=>{
+  document.getElementById("navlinks").classList.remove("open");
+  const targetId = (a.getAttribute("href")||"").replace("#","");
+  if(BIGACC_IDS.includes(targetId)) openSection(targetId);
+}));
+
+/* ---------- top button ---------- */
+window.addEventListener("scroll", function(){
+  const btn = document.getElementById("topBtn");
+  if(window.scrollY > 500) btn.classList.add("show"); else btn.classList.remove("show");
+});
+</script>
+</body>
+</html>
