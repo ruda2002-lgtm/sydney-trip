@@ -429,7 +429,8 @@ footer{margin-top:50px;padding:24px 0;border-top:1px solid var(--line);color:var
   </div>
   <p class="bigacc-summary" id="resSummary">예약 필요 항목 준비 중…</p>
   <div class="bigacc-body">
-  <p class="lead">체크 상태는 이 브라우저(localStorage)에 저장되어 다시 열어도 유지됩니다. 세부 근거(비용·취소규정)는 각 Day 카드의 "예약 필요 여부"를 참고하세요. 정보는 2026-09-10 조회 결과를 바탕으로 2026-10-14에 갱신했으며 금액·정책은 변동될 수 있습니다.</p>
+  <p class="lead">예약할 시기별로 <b>지금 바로(10월) / 11월 / 12월 / 출발 직전·여행 중</b>으로 나눴습니다. 비용은 성인 3명 기준 AUD 추정치이고, 대부분 2026-09~10월 조회 값이라 결제 전 공식 사이트에서 다시 확인하세요. 체크 상태는 이 브라우저(localStorage)에 저장되어 다시 열어도 유지됩니다.</p>
+  <p class="notebox">출발 1주 전 확인(예약 아님): 날씨로 1/2·1/6 렌터카 날짜가 바뀌는지, 1/4 Lake Parramatta 수영구역 운영·수질 공지. 예약 불필요: Opera Bar·MCA·Art Gallery·Botanic Garden·국립해양박물관 상설전·호주 박물관, Mamak(예약 불가).</p>
   <div class="checklist" id="reservationList"></div>
   </div>
 </section>
@@ -794,24 +795,31 @@ const DAYS = [
  rain:"해당 없음.",photo:null}
 ];
 
+const RES_PHASES = [
+ {id:1,title:"① 지금 바로 (10월)"},
+ {id:2,title:"② 11월"},
+ {id:3,title:"③ 12월 (12/1~12/16)"},
+ {id:4,title:"④ 출발 직전 (12/17~12/23) · 여행 중"}
+];
 const RESERVATIONS = [
- {id:"cahill",name:"NYE — Cahill Expressway 무료 응모",day:7,importance:"must",timing:"응모 기간 9/3~10/2 (마감) — 당첨 이메일 10/12~12/4 확인",site:"nyecahillexpressway.com.au",status:"응모 마감 · 결과 대기"},
- {id:"forecourt",name:"NYE — Sydney Opera House Forecourt 등록",day:7,importance:"must",timing:"2026-12-26(토) 10:00 오픈 즉시 (Cahill 미응모·낙첨 시 사실상 1순위)",site:"sydneyoperahouse.com",status:"아직 예약 불가"},
- {id:"operatour",name:"Sydney Opera House 가이드 투어 (선택)",day:3,importance:"reco",timing:"여행 1~2개월 전, 늦어도 전날 17:00까지",site:"sydneyoperahouse.com",status:"예약 가능"},
- {id:"taronga",name:"Taronga Zoo 입장권",day:6,importance:"strong",timing:"여행 1~2주 전(온라인 구매가 저렴)",site:"taronga.org.au",status:"예약 가능"},
- {id:"rentcar",name:"렌터카 ① — Blue Mountains용 (1/2)",day:9,importance:"must",timing:"지금 바로(성수기 요금 상승), 무료 변경 요금제 권장",site:"업체별 상이(Hertz/Avis/Europcar/Budget 등)",status:"예약 가능"},
- {id:"rentcar2",name:"렌터카 ② — Grand Pacific Drive용 (1/6)",day:13,importance:"must",timing:"지금 바로, ①과 함께 견적 비교",site:"업체별 상이(Hertz/Avis/Europcar/Budget 등)",status:"예약 가능"},
- {id:"scenicworld",name:"Scenic World 입장권",day:9,importance:"reco",timing:"티켓 유효기간 3개월 — 10월 이후 구매 → 지금 구매 가능",site:"scenicworld.com.au",status:"예약 가능"},
- {id:"tanunda",name:"Château Tanunda 시음 (12/27)",day:3,importance:"reco",timing:"1~2주 전 (워크인 자리 적음)",site:"chateautanunda.com (Rezdy 예약 페이지)",status:"예약 가능 · 12월 영업시간 재확인"},
- {id:"observatory",name:"Sydney Observatory 유료 투어 (1/7, 선택)",day:14,importance:"opt",timing:"방문 1~2주 전",site:"maas.museum/sydney-observatory",status:"재확인 필요"},
- {id:"sealife",name:"SEA LIFE / WILD LIFE Sydney (1/7, 선택)",day:14,importance:"opt",timing:"방문 며칠~1주 전",site:"visitsealife.com/sydney, wildlifesydney.com.au",status:"예약 가능"},
- {id:"doyles",name:"Doyles on the Beach 레스토랑 (12/29 점심)",day:5,importance:"reco",timing:"여행 2~3주 전",site:"doyles.com.au",status:"예약 가능"},
- {id:"thaipothong",name:"Thai Pothong 저녁 (1/5, 선택)",day:12,importance:"opt",timing:"1주 전",site:"google.com/maps/search/Thai+Pothong+Newtown",status:"재확인 필요"},
- {id:"towereye",name:"Sydney Tower Eye 입장권",day:15,importance:"reco",timing:"여행 1~2주 전, 늦어도 방문 하루 전",site:"sydneytowereye.com.au",status:"예약 가능"},
- {id:"mrwong",name:"Mr. Wong 저녁 (1/8, 마지막 밤)",day:15,importance:"reco",timing:"1~2주 전",site:"레스토랑 공식 사이트",status:"예약 가능"},
- {id:"aria",name:"Aria (1/8, 선택 — Mr. Wong 대신)",day:15,importance:"opt",timing:"몇 주 전",site:"레스토랑 공식 사이트",status:"재확인 필요"},
- {id:"cafesydney",name:"Cafe Sydney (12/28, 선택 — Opera Bar 대신)",day:4,importance:"opt",timing:"1~2주 전",site:"레스토랑 공식 사이트",status:"공휴일 영업 재확인"},
- {id:"maritime",name:"국립해양박물관 함선 관람 (1/7, 선택)",day:14,importance:"opt",timing:"방문 당일~며칠 전",site:"sea.museum",status:"재확인 필요"}
+ {id:"rentcar",phase:1,name:"렌터카 ① — Blue Mountains (1/2)",day:9,importance:"must",site:"Hertz·Avis·Europcar·Budget Parramatta 지점",url:"https://www.google.com/maps/search/?api=1&query=car+rental+Parramatta",method:"견적 비교 후 온라인 예약. 날씨로 날짜를 바꿀 수 있게 무료 변경·취소 요금제, 국제운전면허증 준비",cost:"1일 약 $115~200 + 연료·톨 (하루 교통 약 $158)",deadline:"정해진 마감 없음 — 성수기라 늦을수록 비싸지고 품절 가능"},
+ {id:"rentcar2",phase:1,name:"렌터카 ② — Grand Pacific Drive (1/6)",day:13,importance:"must",site:"Hertz·Avis·Europcar·Budget Parramatta 지점",url:"https://www.google.com/maps/search/?api=1&query=car+rental+Parramatta",method:"①과 함께 견적, 전날(1/5) 저녁 픽업하면 아침이 여유로움",cost:"약 $165 (렌트·연료·톨·주차)",deadline:"①과 동일"},
+ {id:"operatour",phase:1,name:"Opera House 가이드 투어 (12/27)",day:3,importance:"opt",site:"sydneyoperahouse.com",method:"온라인으로 날짜·시간 선택 후 결제, 지각 시 입장 불가",cost:"성인 약 $49 × 3 = 약 $150",deadline:"전날 17:00 예약 마감 — 성수기라 11월까지 확정 권장"},
+ {id:"cahill",phase:2,name:"NYE Cahill Expressway 당첨 확인 (12/31)",day:7,importance:"must",site:"nyecahillexpressway.com.au",method:"응모는 10/2 마감됨. 응모했다면 당첨 이메일(스팸함 포함) 확인 → 안내에 따라 티켓 수령",cost:"무료",deadline:"당첨 이메일 10/12~12/4, 통보 후 2주 안 티켓 수령(양도·환불 불가)"},
+ {id:"scenicworld",phase:2,name:"Scenic World 입장권 (1/2)",day:9,importance:"reco",site:"scenicworld.com.au",method:"날짜 미지정 구매 시 3개월 유효 → 지금 사도 1/2 사용 가능",cost:"성인 약 $55~64 × 3 = 약 $165~192",deadline:"마감 없음, 늦어도 출발 전"},
+ {id:"aria",phase:2,name:"Aria (1/8, Mr. Wong 대신)",day:15,importance:"opt",site:"레스토랑 공식 사이트",url:"https://www.google.com/maps/search/?api=1&query=Aria+Restaurant+Sydney",method:"온라인 예약, 드레스 코드 확인",cost:"1인 약 $250~350+ (Mr. Wong 대비 3인 약 +$600~850)",deadline:"몇 주 전 (11월 중 권장)"},
+ {id:"doyles",phase:3,name:"Doyles on the Beach 점심 (12/29)",day:5,importance:"reco",site:"doyles.com.au / OpenTable / 전화 (02) 9337 2007",method:"12/29(화) 13:15~13:30 예약. 테이크아웃 코너는 예약 불필요",cost:"1인 약 $30~50 (테이크아웃 약 $15~20)",deadline:"여행 2~3주 전 (12월 초~중순)"},
+ {id:"tanunda",phase:3,name:"Château Tanunda 시음 (12/27)",day:3,importance:"reco",site:"chateautanunda.com → Sydney Cellar Door → Book (Rezdy)",url:"https://chateautanunda.com/sydney-cellar-door",method:"아래 단계대로 예약",cost:"기본안 $40 × 3 = $120",deadline:"1~2주 전 (12/13~12/20)",
+  steps:["영업 확인: 공식 사이트는 '매일 13:00~20:00', The Rocks 상가 안내는 '수~일 예약제'로 서로 다름 → 12/27(일)은 양쪽 모두 영업일. 12월 영업시간을 사이트·Google에서 재확인","상품 선택: Introduction to Wine $20 / Barossa Hosted Discovery $40(기본안 — 약 30분, 5종, 직원 진행) / Old Vine Expressions $70 (모두 1인)","날짜·시간: 12/27, 16:15 전후(Harbour Bridge 다음 순서, 16~18시 해피아워), 인원 3명 입력 후 결제","예약이 안 보이면 공식 사이트에 안내된 시음장 이메일·전화로 문의. 워크인도 가능하지만 자리가 적어 예약 권장","취소 규정은 이번 조회에서 찾지 못함 → 예약 페이지 약관 확인. 시음은 18세 이상. 위치는 The Rocks Nurses Walk"]},
+ {id:"cafesydney",phase:3,name:"Cafe Sydney (12/28, Opera Bar 대신)",day:4,importance:"opt",site:"레스토랑 공식 사이트",url:"https://www.google.com/maps/search/?api=1&query=Cafe+Sydney+Customs+House",method:"온라인 예약. 12/28 대체공휴일 영업 여부 먼저 확인",cost:"1인 약 $80~100 (Opera Bar 대비 3인 약 +$135)",deadline:"1~2주 전"},
+ {id:"taronga",phase:4,name:"Taronga Zoo 입장권 (12/30)",day:6,importance:"strong",site:"taronga.org.au",method:"온라인 날짜 지정 구매(현장보다 저렴). 이날은 Balmoral에서 귀가하므로 페리 결합권 불필요",cost:"성인 약 $51 × 3 = 약 $154",deadline:"1~2주 전 — 대부분 24시간 전까지 환불 가능"},
+ {id:"towereye",phase:4,name:"Sydney Tower Eye (1/8)",day:15,importance:"reco",site:"sydneytowereye.com.au",method:"온라인 사전 구매(대기 단축)",cost:"성인 약 $23~29 × 3 = 약 $105",deadline:"늦어도 방문 하루 전(1/7) — 24시간 전까지 취소 가능(예매처별 확인)"},
+ {id:"mrwong",phase:4,name:"Mr. Wong 저녁 (1/8)",day:15,importance:"reco",site:"레스토랑 공식 사이트",url:"https://www.google.com/maps/search/?api=1&query=Mr+Wong+Sydney",method:"1/8(금) 19:00 예약. 금요일 저녁 매우 혼잡, 워크인은 일부 좌석뿐",cost:"1인 약 $60~80 → 약 $210",deadline:"1~2주 전 (출발 전에 해 두기 권장)"},
+ {id:"thaipothong",phase:4,name:"Thai Pothong 저녁 (1/5)",day:12,importance:"opt",site:"레스토랑 공식 사이트 / 전화",url:"https://www.google.com/maps/search/?api=1&query=Thai+Pothong+Newtown",method:"1/5(화) 16:00 이른 저녁 예약",cost:"1인 약 $25~35 → 약 $90",deadline:"1주 전"},
+ {id:"sealife",phase:4,name:"SEA LIFE / WILD LIFE Sydney (1/7)",day:14,importance:"opt",site:"visitsealife.com/sydney, wildlifesydney.com.au",method:"온라인 구매. Tower Eye와 묶은 결합권(Sydney Big Ticket) 할인 가능성",cost:"SEA LIFE 약 $117 / WILD LIFE 약 $147",deadline:"며칠~1주 전"},
+ {id:"observatory",phase:4,name:"천문대 유료 투어 (1/7)",day:14,importance:"opt",site:"maas.museum/sydney-observatory",method:"온라인 예매",cost:"가격 재확인 필요",deadline:"방문 1~2주 전"},
+ {id:"maritime",phase:4,name:"국립해양박물관 함선 관람 (1/7)",day:14,importance:"opt",site:"sea.museum",method:"온라인 예매 또는 현장 구매",cost:"가격 재확인 필요",deadline:"방문 당일~며칠 전"},
+ {id:"forecourt",phase:4,name:"⚠ NYE Opera House Forecourt 등록 (12/31)",day:7,importance:"must",site:"sydneyoperahouse.com",method:"Cahill 미응모·낙첨 시에만 필수. 12/26(토) 10:00 오픈 즉시 접속해 등록(작년 매진)",cost:"무료",deadline:"여행 중 12/26 10:00 선착순"}
 ];
 
 const PACKING = [
@@ -949,18 +957,25 @@ document.getElementById("foodList").innerHTML = DAYS.map(d=>{
 const impBadge = {must:'<span class="badge must">필수</span>',strong:'<span class="badge strong">강력 권장</span>',reco:'<span class="badge reco">권장</span>',opt:'<span class="badge opt">선택</span>'};
 function renderReservations(){
   const saved = JSON.parse(localStorage.getItem("sydneyReservationChecks")||"{}");
-  document.getElementById("reservationList").innerHTML = RESERVATIONS.map(r=>{
+  const item = r=>{
     const checked = saved[r.id]?"checked":"";
-    const siteUrl = r.site.startsWith("http")?r.site:("https://"+r.site.split(",")[0].split(" ")[0].trim());
+    const siteUrl = r.url || (r.site.startsWith("http")?r.site:("https://"+r.site.split(",")[0].split(" ")[0].trim()));
+    const steps = r.steps?`<details class="toggle" style="margin-top:6px"><summary>예약 방법 단계별 보기</summary><div class="body"><ol style="margin:0;padding-left:20px">${r.steps.map(s=>`<li>${esc(s)}</li>`).join("")}</ol></div></details>`:"";
     return `<div class="checkitem ${saved[r.id]?'checked':''}" id="ck-${r.id}">
       <input type="checkbox" ${checked} onchange="toggleReservation('${r.id}')">
       <div style="flex:1">
-        <div class="ctitle">☐ ${esc(r.name)} ${impBadge[r.importance]}</div>
-        <div class="cmeta">${r.day}일차 · 추천 예약 시기: ${esc(r.timing)}</div>
-        <div class="cmeta">공식 사이트: ${esc(r.site)}</div>
-        <div class="statuswrap"><span class="badge status" style="background:var(--chip)">${esc(r.status)}</span>
-        <a class="resbtn" style="margin-left:6px" target="_blank" rel="noopener noreferrer" href="${siteUrl}">🎫 예약 사이트</a></div>
+        <div class="ctitle">${esc(r.name)} ${impBadge[r.importance]}</div>
+        <div class="cmeta">${r.day}일차 · 예약 사이트: ${esc(r.site)}</div>
+        <div class="cmeta">예약 방법: ${esc(r.method)}</div>
+        <div class="cmeta">비용(3인): ${esc(r.cost)}</div>
+        <div class="cmeta"><b>마감</b>: ${esc(r.deadline)}</div>
+        ${steps}
+        <div class="statuswrap"><a class="resbtn" target="_blank" rel="noopener noreferrer" href="${siteUrl}">🎫 예약 사이트</a></div>
       </div></div>`;
+  };
+  document.getElementById("reservationList").innerHTML = RES_PHASES.map(ph=>{
+    const list = RESERVATIONS.filter(r=>r.phase===ph.id);
+    return `<h3 style="margin:18px 0 4px">${esc(ph.title)}</h3>${list.map(item).join("")}`;
   }).join("");
   const doneCount = RESERVATIONS.filter(r=>saved[r.id]).length;
   const sumEl = document.getElementById("resSummary");
