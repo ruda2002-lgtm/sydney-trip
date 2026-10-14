@@ -1,4 +1,4 @@
-const CACHE_NAME = 'sydney-trip-cache-v2';
+const CACHE_NAME = 'sydney-trip-cache-v3';
 
 const PRECACHE_URLS = [
   './',
@@ -11,7 +11,6 @@ const PRECACHE_URLS = [
   './images/nye_fireworks.jpg',
   './images/blue_mountains.jpg',
   './images/manly.jpg',
-  './images/featherdale.jpg',
   './images/darling_harbour.jpg',
   './images/watsons_bay.jpg',
   './images/icon-192.png',
