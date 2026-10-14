@@ -283,7 +283,7 @@ footer{margin-top:50px;padding:24px 0;border-top:1px solid var(--line);color:var
       <button class="smallbtn" onclick="collapseAllDays()">모두 접기</button>
     </div>
   </div>
-  <p class="lead">카드를 누르면 시간대별 일정·맛집·지도·비용 등 상세 내용이 펼쳐집니다. sydney_trip_plan.md의 16일 전체 일정을 그대로 담았습니다.</p>
+  <p class="lead">카드를 누르면 시간대별 일정·맛집·지도·비용 등 상세 내용이 펼쳐집니다. 16일 전체 일정을 담았습니다.</p>
   <div id="dayCards"></div>
 </section>
 
@@ -440,15 +440,15 @@ footer{margin-top:50px;padding:24px 0;border-top:1px solid var(--line);color:var
   <div class="daycard">
     <div class="field"><div class="flabel">기본 노선: 버스 546번 (Busways, Parramatta ↔ Epping, Oatlands·North Rocks 경유)</div>
       <ul>
-        <li>정류장: <b>Belmore Rd East opp Charles St, Oatlands</b></li>
+        <li>정류장: 숙소 근처 546번 정류장 (Oatlands)</li>
         <li>공식 시간표(2026-07-20 발효분): 7일 운행, 평일 첨두시간 약 15~35분 간격, 평일 낮/저녁 및 주말·공휴일은 대체로 약 1시간 간격</li>
         <li>Parramatta Station까지 소요시간: 약 20~23분</li>
-        <li class="warnbox">⚠ 숙소에서 정류장까지 정확한 도보 시간은 공식 지도로 미확인 — 출발 전 Transport NSW Trip Planner에서 직접 재확인 필요</li>
+        <li class="warnbox">⚠ 숙소에서 정류장까지 도보 시간은 출발 전 Transport NSW Trip Planner에서 직접 확인</li>
         <li>552번 버스는 존재하지만 <b>정기 이용 비권장</b>(배차 매우 불규칙, 공식 문서상 감축 대상 노선)</li>
       </ul>
     </div>
     <div class="field"><div class="flabel">대안: Parramatta 경전철(L4) Telopea역</div>
-      <p>숙소에서 도보 약 15분(미검증) 거리, 평일 주간 약 9분 간격으로 546번보다 자주 운행(간접 확인). 도보가 3~4배 길어 아이·짐 많은 날은 불리하지만 배차가 촘촘해 시간이 급할 때 유리.</p>
+      <p>숙소에서 걸어갈 수 있는 거리(미검증), 평일 주간 약 9분 간격으로 546번보다 자주 운행(간접 확인). 도보가 3~4배 길어 아이·짐 많은 날은 불리하지만 배차가 촘촘해 시간이 급할 때 유리.</p>
     </div>
     <div class="field"><div class="flabel">Parramatta역 환승</div><p>T1 노선 주요 환승역. Parramatta → Central 약 23~30분, Central → Circular Quay 약 8분, Town Hall → Circular Quay 약 5분.</p></div>
     <div class="field"><div class="flabel">Opal / Contactless</div><p>평일(월~목) 1인 1일 상한 <b>$19.30</b>, 금~일 및 공휴일 1인 1일 상한 <b>$9.65</b> (opal.com.au 기준, ⚠ 인상 가능성 있어 재확인 필요). Opal 카드 또는 컨택리스 신용/체크카드 모두 사용 가능.</p></div>
@@ -542,12 +542,12 @@ footer{margin-top:50px;padding:24px 0;border-top:1px solid var(--line);color:var
     <tr><td>darling_harbour.jpg — Barangaroo Reserve</td><td>MDRX</td><td><a target="_blank" rel="noopener noreferrer" href="https://commons.wikimedia.org/wiki/File:Barangaroo_Sydney_Australia_01.jpg">Wikimedia Commons</a></td><td>CC BY-SA 4.0</td></tr>
     <tr><td>watsons_bay.jpg — Watsons Bay / The Gap</td><td>Ymblanter</td><td><a target="_blank" rel="noopener noreferrer" href="https://commons.wikimedia.org/wiki/File:Sydney_Watsons_Bay_Tasman_Sea_coast_seen_from_Coastal_Clifftop_Walkway_01.jpg">Wikimedia Commons</a></td><td>CC BY-SA 4.0</td></tr>
   </table></div>
-  <p class="notebox">전체 출처 기록은 image_credits.md 파일을 참고하세요. 이 페이지는 sydney_trip_plan.md와 image_credits.md의 내용을 옮긴 것이며, 두 원본 파일은 수정하지 않았습니다.</p>
+  <p class="notebox">전체 출처 기록은 image_credits.md 파일을 참고하세요.</p>
   </div>
 </section>
 
 <footer class="wrap">
-  Sydney Family Trip 2026-2027 · 개인 여행 가이드 (오프라인 열람 가능) · 출처: sydney_trip_plan.md
+  Sydney Family Trip 2026-2027 · 개인 여행 가이드 (오프라인 열람 가능)
 </footer>
 
 <button id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑ TOP</button>
@@ -742,7 +742,7 @@ const DAYS = [
  rain:"비 오면 전망대 조망 효과 떨어지므로 쇼핑 비중을 늘리고 전망대는 생략, 또는 Darling Harbour 실내 쪽으로 대체.",photo:null},
 
 {id:16,date:"2027-01-09",wd:"토",tag:"귀국",region:"공항",theme:"귀국 준비 + 공항 이동.",intensity:"여유",transport:"Uber/택시 (짐이 많아 대중교통보다 편리)",depart:"-",
- schedule:[["오전","짐 정리, 체크아웃 준비","-","-"],["10:30","Parramatta 근처 가벼운 브런치/마지막 산책(선택)","1~1.5시간","버스546"],["13:00","숙소 복귀, 최종 짐 점검","-","버스546"],["17:00~17:30","공항으로 출발 (21:55 출발, 국제선 3시간 전 도착 권장)","-","Uber/택시(편도 약 40~50분 추정)"],["18:30~19:00","시드니 공항(SYD) 도착, 체크인","-","-"],["21:55","시드니 출발→인천","-","-"]],
+ schedule:[["오전","짐 정리, 체크아웃 준비","-","-"],["10:30","Parramatta 근처 가벼운 브런치/마지막 산책(선택)","1~1.5시간","버스546"],["13:00","숙소 복귀, 최종 짐 점검","-","버스546"],["출발 시각에 맞춰","공항으로 출발 (국제선 출발 3시간 전 도착 권장)","-","Uber/택시(편도 약 40~50분 추정)"],["-","시드니 공항(SYD) 도착, 체크인 후 출국","-","-"]],
  lunch:[{n:"Lil Miss Collins",note:"Parramatta역 도보 5분, 러스틱한 분위기의 인기 브런치 카페(재료 품질 좋다는 평)",price:"1인 약 $20~28",when:"10:30 마지막 산책 겸 브런치",res:"불필요(주말 대기 가능)",map:"https://www.google.com/maps/search/?api=1&query=Lil+Miss+Collins+Parramatta"}],
  cafe:[{n:"Circa Espresso",note:"Parramatta, 출국 전 마지막으로 가볍게 들르기 좋은 라네웨이 카페(재방문)",price:"1인 약 $10~15",when:"공항 출발 전 테이크아웃 커피",res:"불필요",map:"https://www.google.com/maps/search/?api=1&query=Circa+Espresso+Parramatta"}],
  dinner:[{n:"공항 내 식당가",note:"터미널별 상이, 당일 확인 — 특정 상호 조사는 범위 밖",price:"추정 1인 약 $20",when:"체크인 이후",res:"-"}],

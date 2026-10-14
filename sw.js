@@ -1,4 +1,4 @@
-const CACHE_NAME = 'sydney-trip-cache-v1';
+const CACHE_NAME = 'sydney-trip-cache-v2';
 
 const PRECACHE_URLS = [
   './',
