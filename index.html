@@ -551,8 +551,8 @@ footer{margin-top:50px;padding:24px 0;border-top:1px solid var(--line);color:var
   </div>
   <p class="bigacc-summary" id="packSummary">준비물 준비 중…</p>
   <div class="bigacc-body">
-  <p class="lead">체크 상태는 이 브라우저에 저장됩니다.</p>
-  <div class="packgrid" id="packingList"></div>
+  <p class="lead">출발 전에 한 번 챙기는 <b>기본 준비물</b>과 그날 아침 따로 챙길 <b>날짜별 준비물</b>로 나눴습니다. 날짜를 누르면 목록이 펼쳐지고, 체크 상태는 이 브라우저에 저장됩니다.</p>
+  <div id="packingList"></div>
   </div>
 </section>
 
@@ -822,14 +822,7 @@ const RESERVATIONS = [
  {id:"forecourt",phase:4,name:"⚠ NYE Opera House Forecourt 등록 (12/31)",day:7,importance:"must",site:"sydneyoperahouse.com",method:"Cahill 미응모·낙첨 시에만 필수. 12/26(토) 10:00 오픈 즉시 접속해 등록(작년 매진)",cost:"무료",deadline:"여행 중 12/26 10:00 선착순"}
 ];
 
-const PACKING = [
- "여권 & 항공권/예약 확인서 사본","여행자보험 증서",
- "Opal 카드 또는 컨택리스 신용/체크카드","휴대폰 & 충전기",
- "자외선 차단제, 모자, 선글라스","편한 워킹화 (해안 산책로·블루마운틴·동물원 도보 비중 높음)",
- "우비/작은 우산 (NYE 등 우천 대비, 큰 우산은 NYE 반입 제한)","수영복, 수건 (Bondi/Balmoral/Manly)",
- "보조배터리, 멀티어댑터 (Type I 플러그)","상비약, 벌레기피제",
- "NYE 당일용 도시락/간식/물 (장시간 대기 대비)","국제운전면허증 (렌터카 운전 시, 1/2 Blue Mountains·1/6 Wollongong)"
-];
+const PACK_GROUPS = [{"id": "pre", "title": "출발 전 — 기본 준비물 (모든 날 공통)", "day": null, "items": [{"id": "pre-1", "t": "여권 (유효기간 6개월 이상) & 항공권·예약 확인서 사본"}, {"id": "pre-2", "t": "여행자보험 증서"}, {"id": "pre-3", "t": "Opal 카드 또는 컨택리스 신용/체크카드 — 3명이 각자 다른 카드/폰 (주간 상한이 카드별 적용)"}, {"id": "pre-4", "t": "국제운전면허증 + 한국 운전면허증 (1/2·1/6 렌터카)"}, {"id": "pre-5", "t": "휴대폰 & 충전기, 보조배터리"}, {"id": "pre-6", "t": "멀티어댑터 (호주 Type I 플러그)"}, {"id": "pre-7", "t": "상비약, 벌레기피제"}, {"id": "pre-8", "t": "자외선 차단제(방수), 모자, 선글라스"}, {"id": "pre-9", "t": "편한 워킹화 (해안 산책로·블루마운틴·동물원 도보 비중 높음)"}, {"id": "pre-10", "t": "우비 / 작은 접이식 우산 (큰 우산은 NYE 반입 제한)"}, {"id": "pre-11", "t": "수영복·수건·래시가드 (Bondi·Balmoral·Manly·Lake Parramatta)"}, {"id": "pre-12", "t": "얇은 바람막이/겉옷 (블루마운틴·바닷가 바람·NYE 밤)"}, {"id": "pre-13", "t": "물병, 장바구니"}]}, {"id": "d1", "title": "12/25(금) 도착 · 크리스마스", "day": 1, "items": [{"id": "d1-1", "t": "크리스마스 당일은 마트도 대부분 휴무 — 첫날 먹을 간식·물 (공항·주유소 편의점 확인)"}, {"id": "d1-2", "t": "체크인 전 짐 보관 가능 여부 미리 문의"}]}, {"id": "d2", "title": "12/26(토) Boxing Day 쇼핑", "day": 2, "items": [{"id": "d2-1", "t": "쇼핑 리스트·예산, 장바구니"}, {"id": "d2-2", "t": "물 (Westfield 인파 대비)"}]}, {"id": "d3", "title": "12/27(일) Opera House · MCA · Rocks · Château Tanunda", "day": 3, "items": [{"id": "d3-1", "t": "Château Tanunda 시음 예약 확인 (16:15 전후)"}, {"id": "d3-2", "t": "나이 확인용 신분증 (시음 18세 이상)"}, {"id": "d3-3", "t": "Opera House 투어 예약 확인 (선택 시)"}, {"id": "d3-4", "t": "모자·선크림 (Harbour Bridge 도보)"}]}, {"id": "d4", "title": "12/28(월) Art Gallery · Botanic Garden · 해안 산책로 · Opera Bar", "day": 4, "items": [{"id": "d4-1", "t": "모자·물 (해안 산책로는 그늘이 적음)"}, {"id": "d4-2", "t": "Cafe Sydney 예약 확인 (선택 시)"}]}, {"id": "d5", "title": "12/29(화) Bondi · Watsons Bay · 페리", "day": 5, "items": [{"id": "d5-1", "t": "수영복·비치타월·갈아입을 옷"}, {"id": "d5-2", "t": "방수 선크림, 모자"}, {"id": "d5-3", "t": "Doyles 점심 예약 확인 (13:15~13:30)"}]}, {"id": "d6", "title": "12/30(수) Taronga Zoo · Balmoral", "day": 6, "items": [{"id": "d6-1", "t": "Taronga Zoo 입장권 (휴대폰에 저장)"}, {"id": "d6-2", "t": "수영복·수건 (Balmoral)"}, {"id": "d6-3", "t": "다음날 NYE용 도시락·간식 미리 장보기"}]}, {"id": "d7", "title": "12/31(목) NYE 불꽃놀이", "day": 7, "items": [{"id": "d7-1", "t": "Cahill 당첨 티켓 또는 Forecourt 등록 확인 (휴대폰 + 캡처)"}, {"id": "d7-2", "t": "도시락·간식·물 (장시간 대기)"}, {"id": "d7-3", "t": "돗자리·방석"}, {"id": "d7-4", "t": "우비 (큰 우산·유리병 등 반입 제한 품목 확인)"}, {"id": "d7-5", "t": "보조배터리 완충"}, {"id": "d7-6", "t": "밤에 입을 얇은 겉옷"}]}, {"id": "d8", "title": "1/1(금) 새해 첫날 휴식", "day": 8, "items": [{"id": "d8-1", "t": "특별히 챙길 것 없음 — 공휴일이라 상점 영업시간 확인"}]}, {"id": "d9", "title": "1/2(토) Blue Mountains · Leura (렌터카)", "day": 9, "items": [{"id": "d9-1", "t": "국제운전면허증 + 한국 운전면허증, 렌터카 예약 확인"}, {"id": "d9-2", "t": "Scenic World 입장권"}, {"id": "d9-3", "t": "산 위라 기온이 낮을 수 있음 — 얇은 겉옷"}, {"id": "d9-4", "t": "워킹화, 물"}]}, {"id": "d10", "title": "1/3(일) Manly", "day": 10, "items": [{"id": "d10-1", "t": "수영복·수건, 방수 선크림"}]}, {"id": "d11", "title": "1/4(월) 쉬어 가는 날 · Lake Parramatta", "day": 11, "items": [{"id": "d11-1", "t": "수영복·수건 (지정 수영구역에서 물놀이할 때만)"}, {"id": "d11-2", "t": "물, 모자"}, {"id": "d11-3", "t": "장바구니 (Westfield에서 저녁거리)"}]}, {"id": "d12", "title": "1/5(화) Grounds of Alexandria · Newtown", "day": 12, "items": [{"id": "d12-1", "t": "Thai Pothong 저녁 예약 확인 (선택 시)"}, {"id": "d12-2", "t": "빈티지·서점 쇼핑 예산"}]}, {"id": "d13", "title": "1/6(수) Bald Hill · Sea Cliff Bridge · Wollongong (렌터카)", "day": 13, "items": [{"id": "d13-1", "t": "국제운전면허증 + 한국 운전면허증, 렌터카 예약 확인"}, {"id": "d13-2", "t": "바람막이 (Bald Hill 바람이 셈)"}, {"id": "d13-3", "t": "물, 모자"}]}, {"id": "d14", "title": "1/7(목) 천문대 · 해양박물관 · Fish Market · Paddy's Markets", "day": 14, "items": [{"id": "d14-1", "t": "워킹화 (Observatory Hill 오르막·계단)"}, {"id": "d14-2", "t": "장바구니·기념품 예산 (Paddy's Markets)"}, {"id": "d14-3", "t": "SEA LIFE / WILD LIFE 입장권 (선택 시)"}]}, {"id": "d15", "title": "1/8(금) 마지막 밤 · 호주 박물관 · Tower Eye · Mr. Wong", "day": 15, "items": [{"id": "d15-1", "t": "Sydney Tower Eye 입장권"}, {"id": "d15-2", "t": "Mr. Wong 저녁 예약 확인 (Aria로 바꾸면 드레스 코드)"}, {"id": "d15-3", "t": "막바지 기념품 쇼핑 리스트"}]}, {"id": "d16", "title": "1/9(토) 귀국", "day": 16, "items": [{"id": "d16-1", "t": "여권, 짐 무게 확인 (휴대 제한 품목 정리)"}, {"id": "d16-2", "t": "숙소 체크아웃 전 충전기·어댑터 챙겼는지 확인"}, {"id": "d16-3", "t": "공항까지 Uber/택시 — 대형 수하물이면 UberXL"}]}];
 
 const COST_DAILY = [
 ["12/25(금)","$120","$0","$62","$5","$62 (₩59,000)","$187 (₩178,000)"],
@@ -991,20 +984,24 @@ renderReservations();
 
 function renderPacking(){
   const saved = JSON.parse(localStorage.getItem("sydneyPackingChecks")||"{}");
-  document.getElementById("packingList").innerHTML = PACKING.map((p,i)=>{
-    const checked = saved[i]?"checked":"";
-    return `<div class="checkitem ${saved[i]?'checked':''}">
-      <input type="checkbox" ${checked} onchange="togglePacking(${i})">
-      <div class="ctitle">${esc(p)}</div>
+  const all = PACK_GROUPS.flatMap(g=>g.items);
+  const item = p=>`<div class="checkitem ${saved[p.id]?'checked':''}">
+      <input type="checkbox" ${saved[p.id]?"checked":""} onchange="togglePacking('${p.id}')">
+      <div class="ctitle">${esc(p.t)}</div>
     </div>`;
+  document.getElementById("packingList").innerHTML = PACK_GROUPS.map((g,gi)=>{
+    const done = g.items.filter(p=>saved[p.id]).length;
+    const link = g.day?` <a href="#day-${g.day}" onclick="openDay(${g.day})" style="font-size:.78rem;font-weight:400">일정 보기</a>`:"";
+    return `<details class="toggle" ${gi===0?"open":""}><summary>${esc(g.title)} · ${done}/${g.items.length}</summary><div class="body">
+      ${gi===0?"":link}<div class="packgrid" style="margin-top:8px">${g.items.map(item).join("")}</div></div></details>`;
   }).join("");
-  const doneCount = PACKING.filter((p,i)=>saved[i]).length;
+  const doneCount = all.filter(p=>saved[p.id]).length;
   const sumEl = document.getElementById("packSummary");
-  if(sumEl) sumEl.textContent = `준비물 ${doneCount}/${PACKING.length} 완료`;
+  if(sumEl) sumEl.textContent = `준비물 ${doneCount}/${all.length} 완료`;
 }
-function togglePacking(i){
+function togglePacking(id){
   const saved = JSON.parse(localStorage.getItem("sydneyPackingChecks")||"{}");
-  saved[i] = !saved[i];
+  saved[id] = !saved[id];
   localStorage.setItem("sydneyPackingChecks", JSON.stringify(saved));
   renderPacking();
 }
